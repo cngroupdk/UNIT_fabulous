@@ -8,7 +8,8 @@
 
 return [
     'box'  => [
-        'not-found' => 'Box not found.'
+        'not-found' => 'Box not found.',
+        'created' => 'New box created.'
     ],
     'auth' => [
         'register' => [
