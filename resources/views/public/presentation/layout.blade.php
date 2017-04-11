@@ -18,14 +18,14 @@
     <![endif]-->
 
     <style>
-        .content{
-            padding-top:80px;
+        .content {
+            padding-top: 80px;
             background: #f5f5f5;
-            padding-bottom:80px;
+            padding-bottom: 80px;
         }
 
         ul.wizard-steps {
-            position:relative;
+            position: relative;
             list-style: none;
             padding: 0;
             margin-bottom: 50px;
@@ -34,10 +34,9 @@
         }
 
         ul.wizard-steps li {
-            display:inline-block;
+            display: inline-block;
             margin: 30px 15px 0 15px;
         }
-
 
         ul.wizard-steps li.active a .wizard-no {
             background: #666;
@@ -56,25 +55,25 @@
             transition: all .2s;
         }
 
-        .wizard-wrapper{
-            height:400px;
+        .wizard-wrapper {
+            height: 400px;
             padding: 50px;
             background: #fff;
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
         }
 
-        .wizard-side{
-            text-align:center;
-            height:400px;
-            display:table;
+        .wizard-side {
+            text-align: center;
+            height: 400px;
+            display: table;
         }
 
-        .wizard-btn-wrapper{
+        .wizard-btn-wrapper {
             display: table-cell;
             vertical-align: middle;
         }
 
-        .wizard-categories{
+        .wizard-categories {
             margin: 0;
             padding: 0;
             list-style: none;
@@ -96,8 +95,6 @@
             transition: color 0.4s;
         }
 
-
-
         .wizard-categories li .destroy {
             display: none;
             position: absolute;
@@ -116,7 +113,6 @@
         .wizard-categories li .destroy:after {
             content: '×';
         }
-
 
         .wizard-categories li:hover .destroy {
             display: block;
@@ -157,8 +153,8 @@
             </a>
         </div>
 
-        <?php $controllerMethod = str_replace('App\\Http\\Controllers\\', '', substr(Route::currentRouteAction(), (strpos(Route::currentRouteAction(), '@') + 1))); ?>
-                <!-- Collect the nav links, forms, and other content for toggling -->
+    <?php $controllerMethod = str_replace('App\\Http\\Controllers\\', '', substr(Route::currentRouteAction(), (strpos(Route::currentRouteAction(), '@') + 1))); ?>
+    <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 @yield('navbar-left')
@@ -178,16 +174,16 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {{--<li class="wow fadeInDown {{$controllerMethod=='index' ? 'active':''}}" data-wow-delay="0s"><a--}}
-                            {{--href="{{action('Presentation\PresentationController@index',$domain)}}">{{trans('presentation.menu.homepage')}}</a>--}}
+                {{--href="{{action('Presentation\PresentationController@index',$domain)}}">{{trans('presentation.menu.homepage')}}</a>--}}
                 {{--</li>--}}
                 {{--<li class="wow fadeInDown {{$controllerMethod=='templates' ? 'active':''}}" data-wow-delay=".2s"><a--}}
-                            {{--href="{{action('Presentation\PresentationController@templates',$domain)}}">{{trans('presentation.menu.templates')}}</a>--}}
+                {{--href="{{action('Presentation\PresentationController@templates',$domain)}}">{{trans('presentation.menu.templates')}}</a>--}}
                 {{--</li>--}}
                 {{--<li class="wow fadeInDown {{$controllerMethod=='prices' ? 'active':''}}" data-wow-delay=".4s"><a--}}
-                            {{--href="{{action('Presentation\PresentationController@prices',$domain)}}">{{trans('presentation.menu.prices')}}</a>--}}
+                {{--href="{{action('Presentation\PresentationController@prices',$domain)}}">{{trans('presentation.menu.prices')}}</a>--}}
                 {{--</li>--}}
                 {{--<li class="wow fadeInDown {{$controllerMethod=='contact' ? 'active':''}}" data-wow-delay=".6s"><a--}}
-                            {{--href="{{action('Presentation\PresentationController@contact',$domain)}}">{{trans('presentation.menu.contact')}}</a>--}}
+                {{--href="{{action('Presentation\PresentationController@contact',$domain)}}">{{trans('presentation.menu.contact')}}</a>--}}
                 {{--</li>--}}
 
                 @if(Auth::check())
@@ -221,10 +217,7 @@
 
 <div class="content">
 
-
     @yield('content')
-
-
 
 </div>
 
@@ -235,13 +228,13 @@
             <div class="col-md-12">
                 <ul>
                     {{--<li class="{{$controllerMethod=='blog' ? 'active':''}}"><a--}}
-                                {{--href="{{action('Presentation\BlogController@index',$domain)}}">{{trans('presentation.menu.blog')}}</a>--}}
+                    {{--href="{{action('Presentation\BlogController@index',$domain)}}">{{trans('presentation.menu.blog')}}</a>--}}
                     {{--</li>--}}
                     {{--<li class="{{$controllerMethod=='support' ? 'active':''}}"><a--}}
-                                {{--href="{{action('Presentation\PresentationController@tutorials',$domain)}}">{{trans('presentation.menu.support')}}</a>--}}
+                    {{--href="{{action('Presentation\PresentationController@tutorials',$domain)}}">{{trans('presentation.menu.support')}}</a>--}}
                     {{--</li>--}}
                     {{--<li class="{{$controllerMethod=='support' ? 'active':''}}"><a--}}
-                                {{--href="{{action('Presentation\PresentationController@termsconditions',$domain)}}">{{trans('presentation.menu.tac')}}</a>--}}
+                    {{--href="{{action('Presentation\PresentationController@termsconditions',$domain)}}">{{trans('presentation.menu.tac')}}</a>--}}
                     {{--</li>--}}
                 </ul>
                 <p>{!! trans('presentation.partials.footer.company') !!}</p>
@@ -252,94 +245,94 @@
 
 <script src="{{asset('js/jquery.js')}}"></script>
 <script>
-    (function ($) {
-        $(window).scroll(function () {
+	(function ($) {
+		$(window).scroll(function () {
 
-            if ($(window).scrollTop() > 50) {
-                $('.navbar').addClass('nav-bg');
-            } else {
-                $('.navbar').removeClass('nav-bg');
-            }
-            ;
-        });
+			if ($(window).scrollTop() > 50) {
+				$('.navbar').addClass('nav-bg');
+			}
+			else {
+				$('.navbar').removeClass('nav-bg');
+			}
+			;
+		});
 
-        $(".navbar-toggle").on("click", function () {
-            $(this).toggleClass("active");
-        });
+		$(".navbar-toggle").on("click", function () {
+			$(this).toggleClass("active");
+		});
 
 
+		$('.parallax-window').parallax();
 
-        $('.parallax-window').parallax();
+		$(".feature-item").on("click", function () {
+			$(".feature-item").removeClass('active')
+			$(this).addClass("active");
 
-        $(".feature-item").on("click", function () {
-            $(".feature-item").removeClass('active')
-            $(this).addClass("active");
+			var animation = $(this).data('animation');
 
-            var animation = $(this).data('animation');
-
-            $(".animation-item").removeClass('active');
-            $('.animation-item[data-animation="' + animation + '"]').addClass('active');
-        });
-    })(jQuery);
+			$(".animation-item").removeClass('active');
+			$('.animation-item[data-animation="' + animation + '"]').addClass('active');
+		});
+	})(jQuery);
 </script>
 {{--<script src="{{asset('js/masonry.pkgd.min.js')}}"></script>--}}
 {{--<script>--}}
-    {{--$('.template-block').mouseenter(function () {--}}
-        {{--$('.template-block').removeClass('active');--}}
-        {{--$(this).addClass('active');--}}
-    {{--});--}}
+{{--$('.template-block').mouseenter(function () {--}}
+{{--$('.template-block').removeClass('active');--}}
+{{--$(this).addClass('active');--}}
+{{--});--}}
 
-    {{--$('.template-block').mouseleave(function () {--}}
-        {{--$('.template-block').removeClass('active');--}}
-    {{--});--}}
+{{--$('.template-block').mouseleave(function () {--}}
+{{--$('.template-block').removeClass('active');--}}
+{{--});--}}
 
-    {{--$(document).on('click', '.link-modal', function (e) {--}}
-        {{--e.preventDefault();--}}
-        {{--e.stopPropagation();--}}
+{{--$(document).on('click', '.link-modal', function (e) {--}}
+{{--e.preventDefault();--}}
+{{--e.stopPropagation();--}}
 
-        {{--console.log('klik na link-modal');--}}
+{{--console.log('klik na link-modal');--}}
 
-        {{--$link = $(e.target).closest('a');--}}
+{{--$link = $(e.target).closest('a');--}}
 
-        {{--$.ajax({--}}
-            {{--url: $link.attr('href')--}}
-        {{--}).done(function (data) {--}}
-            {{--var $modal = $(data);--}}
+{{--$.ajax({--}}
+{{--url: $link.attr('href')--}}
+{{--}).done(function (data) {--}}
+{{--var $modal = $(data);--}}
 
-            {{--$('body').append($modal);--}}
-            {{--$modal.modal();--}}
+{{--$('body').append($modal);--}}
+{{--$modal.modal();--}}
 
-            {{--$modal.on('hidden.bs.modal', function (e) {--}}
-                {{--$modal.remove();--}}
-                {{--$('.modal-backdrop').remove();--}}
-            {{--})--}}
-        {{--}).error(function () {--}}
+{{--$modal.on('hidden.bs.modal', function (e) {--}}
+{{--$modal.remove();--}}
+{{--$('.modal-backdrop').remove();--}}
+{{--})--}}
+{{--}).error(function () {--}}
 
-        {{--});--}}
-    {{--})--}}
+{{--});--}}
+{{--})--}}
 
 
 {{--</script>--}}
 {{--<script>--}}
 
-    {{--var $grid = $('.grid').masonry({--}}
-        {{--// set itemSelector so .grid-sizer is not used in layout--}}
-        {{--itemSelector: '.grid-item',--}}
-        {{--// use element for option--}}
-        {{--columnWidth: '.grid-sizer',--}}
-        {{--percentPosition: true--}}
-    {{--})--}}
+{{--var $grid = $('.grid').masonry({--}}
+{{--// set itemSelector so .grid-sizer is not used in layout--}}
+{{--itemSelector: '.grid-item',--}}
+{{--// use element for option--}}
+{{--columnWidth: '.grid-sizer',--}}
+{{--percentPosition: true--}}
+{{--})--}}
 
 
-    {{--// layout Masonry after each image loads--}}
-    {{--$grid.imagesLoaded().progress(function () {--}}
-        {{--$grid.masonry('layout');--}}
-    {{--});--}}
+{{--// layout Masonry after each image loads--}}
+{{--$grid.imagesLoaded().progress(function () {--}}
+{{--$grid.masonry('layout');--}}
+{{--});--}}
 {{--</script>--}}
 
 <script src="{{asset('js/wow.js')}}"></script>
 <script>
-    new WOW().init();
+	new WOW().init();
 </script>
 </body>
 </html>

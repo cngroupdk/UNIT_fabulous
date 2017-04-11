@@ -34,7 +34,10 @@ Route::get('/wizard/categories','WizardController@categories');
 //Route::get('/wizard','WizardController@create');
 =======
 Route::post('/home', 'HomeController@search');
-Route::get('/{code}', 'FeedbackController@index');
+
+
+Route::get('/{code}', 'FeedbackController@create');
+Route::post('/{code}', 'FeedbackController@store');
 
 Route::group(['middleware' => ['auth']], function () {
 
