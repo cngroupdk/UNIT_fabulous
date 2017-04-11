@@ -6,21 +6,12 @@
 
         <div class="col-md-6 col-md-push-3 wizard-wrapper">
             <h2 class="text-center">Categories</h2>
-            <ul class="wizard-categories">
-                <li>
-                    <div class="category">
-                        <label>asdfasdasdf</label>
-                        <button class="btn btn-link destroy"></button>
-                    </div>
-                </li>
-            </ul>
 
-            <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Name</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                </div>
-            </form>
+            <select multiple="multiple" style="width:100%"
+                    placeholder="{{trans('auctions.filter.placeholder')}}">
+                    <option>jedna</option>
+                    <option>dve</option>
+            </select>
         </div>
 
         <div class="col-md-3 col-md-pull-6 col-xs-6 wizard-side">

@@ -1640,9 +1640,7 @@
                 MultipleSelection.prototype.selectionContainer = function () {
                     var $container = $(
                         '<li class="select2-selection__choice">' +
-                        '<span class="select2-selection__choice__remove" role="presentation">' +
-                        '&times;' +
-                        '</span>' +
+                        '<button class="btn btn-link select2-selection__choice__remove" role="presentation"></button>' +
                         '</li>'
                     );
 
@@ -1665,7 +1663,7 @@
                         var $selection = this.selectionContainer();
                         var formatted = this.display(selection, $selection);
 
-                        $selection.append(formatted);
+                        $selection.append('<label>'+formatted+'</label>');
                         $selection.prop('title', selection.title || selection.text);
 
                         $selection.data('data', selection);
@@ -5627,9 +5625,9 @@
                 Select2.prototype.render = function () {
                     var $container = $(
                         '<span class="select2 select2-container">' +
+                        '<ul class="tags"></ul>' +
                         '<span class="selection"></span>' +
                         '<span class="dropdown-wrapper" aria-hidden="true"></span>' +
-                        '<span class="tags"></span>' +
                         '</span>'
                     );
 

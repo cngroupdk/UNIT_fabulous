@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\RegistrationRequest;
 use App\Models\User;
-use App\Http\Controllers\Controller;
+use App\Notifications\Registration;
+use Facades\App\Services\UserService;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Facades\App\Services\UserService;
 
 class RegisterController extends Controller
 {
@@ -61,6 +62,8 @@ class RegisterController extends Controller
     {
         event(new Registered($user = $this->create($request->all())));
 
+        $user->notify(new Registration($user, $request->password));
+        
         $this->guard()->login($user);
 
         return $this->registered($request, $user)
