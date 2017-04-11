@@ -16,8 +16,9 @@
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Answers</th>
+                                <th>{{trans('views.box.index.name')}}</th>
+                                <th>{{trans('views.box.index.answers')}}</th>
+                                <th>{{trans('views.box.index.private')}}</th>
                                 <th></th>
                             </tr>
                             </thead>
@@ -26,6 +27,11 @@
                                 <tr>
                                     <td>{{$box->name}}</td>
                                     <td>{{count($box->feedbacks)}}</td>
+                                    @if ($box->private)
+                                        <td><i class="fa fa-check"></i></td>
+                                    @else
+                                        <td><i class="fa fa-times"></i></td>
+                                    @endif
                                     <td>
                                         <a class="btn btn-primary" href="{{action('BoxController@showFeedback', $box->id)}}"><i class="fa fa-search"></i></a>
                                     </td>
