@@ -22,7 +22,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::post('/home', 'HomeController@search');
-Route::get('/box/{code}', 'FeedbackController@index');
+
+Route::get('/lang/{code}', 'HomeController@changeLang');
+
+Route::get('/{code}', 'FeedbackController@create');
+Route::post('/{code}', 'FeedbackController@store');
+
 
 Route::group(['middleware' => ['auth']], function () {
 

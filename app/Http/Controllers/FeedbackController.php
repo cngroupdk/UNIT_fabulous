@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use Facades\App\Services\BoxService;
+use Facades\App\Services\FeedbackService;
+use Facades\App\Services\RatingService;
+use Facades\App\Services\UserService;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class FeedbackController extends Controller
 {
@@ -45,7 +50,45 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $box = BoxService::getByCode($boxCode);
+
+        if ($box == null) {
+            flash()->error(trans('flash.box.not-found'));
+
+            return redirect()->action('HomeController@index');
+        }
+
+        $user = UserService::getByEmail($request->email);
+
+        if ($user == null) {
+            $password = uniqid();
+
+            $user = UserService::create([
+                'email'    => $request->email,
+                'password' => \Hash::make($password)
+            ]);
+
+            event(new Registered($user));
+            $user->notify(new Registration($user, $password));
+        }
+
+        $feedback = FeedbackService::create([
+            'user_id' => $user->id,
+            'box_id'  => $box->id,
+            'comment' => $request->comment
+        ]);
+
+        foreach ($box->categories as $category) {
+            RatingService::create([
+                'feedback_id' => $feedback->id,
+                'category_id' => $category->id,
+                'rating'      => Input::get('category_'.$category->id)
+            ]);
+        }
+
+        flash()->success(trans('feedback.message.success'));
+
+        return redirect()->action('HomeController@index');
     }
 
     /**
