@@ -28,19 +28,18 @@ Route::post('/home', 'HomeController@search');
 
 Route::get('/lang/{code}', 'HomeController@changeLang');
 
-Route::get('/{code}', 'FeedbackController@create');
-Route::post('/{code}', 'FeedbackController@store');
-
 
 Route::group(['middleware' => ['auth']], function () {
-Route::get('/wizard','WizardController@showGeneral');
-Route::post('/wizard/general','WizardController@storeGeneral');
-Route::get('/wizard/categories','WizardController@showCategories');
-Route::post('/wizard/categories','WizardController@storeCategories');
-Route::get('/wizard/emails','WizardController@showEmails');
-Route::post('/wizard/emails','WizardController@storeEmails');
-Route::get('/wizard/preview','WizardController@showPreview');
+    Route::get('/wizard', 'WizardController@showGeneral');
+    Route::post('/wizard/general', 'WizardController@storeGeneral');
+    Route::get('/wizard/categories', 'WizardController@showCategories');
+    Route::post('/wizard/categories', 'WizardController@storeCategories');
+    Route::get('/wizard/emails', 'WizardController@showEmails');
+    Route::post('/wizard/emails', 'WizardController@storeEmails');
+    Route::get('/wizard/preview', 'WizardController@showPreview');
 
-Route::get('/wizard/create','WizardController@create');
-
+    Route::get('/wizard/create', 'WizardController@create');
 });
+
+Route::get('/{code}', 'FeedbackController@create');
+Route::post('/{code}', 'FeedbackController@store');
