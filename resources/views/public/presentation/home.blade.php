@@ -69,7 +69,7 @@
         </div>
     </div>
 
-
+@section('features')
     <section id="features">
         <div class="container">
             <div class="row">

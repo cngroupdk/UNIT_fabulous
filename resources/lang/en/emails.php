@@ -14,7 +14,7 @@ return [
     */
     'subject_prefix' => 'TellMeBox:',
 
-    'box_invitation' => 'Boli ste pozvaní na ohodnotenie cez TellMeBox. Na stránke ho nájdete po zadaní kódu :box_code',
+    'box_invitation' => 'You were invated to rate service via TellBox. Please insert this code: :box_code into TellBox page to rate.',
 
     'password' => [
         'title'   => 'Forgot password',

@@ -32,6 +32,13 @@ return [
         'register' => 'Registration'
     ],
 
+    'newsletter'=>[
+        'heading'=>'Newsletter',
+        'subheading'=>'Subscribe newsletter.',
+        'button'=>'Subscribe',
+        'placeholder'=>'Enter your e-mail address',
+    ],
+
     'partials-footer-company'=>'Fabulous s.r.o'
 
 ];
