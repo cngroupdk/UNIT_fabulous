@@ -16,6 +16,112 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+        .content{
+            padding-top:80px;
+            background: #f5f5f5;
+            padding-bottom:80px;
+        }
+
+        ul.wizard-steps {
+            position:relative;
+            list-style: none;
+            padding: 0;
+            margin-bottom: 50px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        ul.wizard-steps li {
+            display:inline-block;
+            margin: 30px 15px 0 15px;
+        }
+
+
+        ul.wizard-steps li.active a .wizard-no {
+            background: #666;
+            color: #fff;
+        }
+
+        ul.wizard-steps li a .wizard-no {
+            background: rgba(0, 0, 0, 0.05);
+            color: #222;
+            padding: 17px 19px;
+            border-radius: 60px;
+            margin-right: 10px;
+            font-weight: 800;
+            -webkit-transition: all .2s;
+            -o-transition: all .2s;
+            transition: all .2s;
+        }
+
+        .wizard-wrapper{
+            height:400px;
+            padding: 50px;
+            background: #fff;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .wizard-side{
+            text-align:center;
+            height:400px;
+            display:table;
+        }
+
+        .wizard-btn-wrapper{
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .wizard-categories{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .wizard-categories li {
+            position: relative;
+            font-size: 24px;
+            border-bottom: 1px solid #ededed;
+        }
+
+        .wizard-categories li label {
+            white-space: pre-line;
+            word-break: break-all;
+            padding: 15px 60px 15px 15px;
+            display: block;
+            line-height: 1.2;
+            font-weight: 200;
+            transition: color 0.4s;
+        }
+
+
+
+        .wizard-categories li .destroy {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 10px;
+            bottom: 0;
+            width: 40px;
+            height: 40px;
+            margin: auto 0;
+            font-size: 30px;
+            color: #cc9a9a;
+            margin-bottom: 11px;
+            transition: color 0.2s ease-out;
+        }
+
+        .wizard-categories li .destroy:after {
+            content: '×';
+        }
+
+
+        .wizard-categories li:hover .destroy {
+            display: block;
+        }
+    </style>
 </head>
 <body>
 @if($errors->has('newsletter-email'))
@@ -95,7 +201,7 @@
                     </li>
                 @endif
 
-                <li class="dropdown">
+                <li class="wow fadeInDown" data-wow-delay=".8s">
                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
                         <span class="caret"></span></button>
                     <ul class="dropdown-menu">
@@ -118,36 +224,7 @@
 
     @yield('content')
 
-    <section id="newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
 
-                    <h1>{!! trans('presentation.newsletter.heading') !!}</h1>
-
-                    <p class="content-subheading">{!! trans('presentation.newsletter.subheading') !!}</p>
-
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <form method="post" action="/newsletter">
-                                {!! csrf_field() !!}
-
-                                <div class="input-group">
-                                    <input type="email" class="form-control" name="newsletter-email"
-                                           placeholder="{{ trans('presentation.newsletter.placeholder') }}" required>
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default btn-shadow"
-                                                type="submit">{{ trans('presentation.newsletter.button') }}</button>
-                                    </span>
-                                </div><!-- /input-group -->
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 </div>
 
@@ -173,64 +250,94 @@
     </div>
 </footer>
 
-<script src="{{asset('js/presentation.js')}}"></script>
-<script src="{{asset('js/masonry.pkgd.min.js')}}"></script>
+<script src="{{asset('js/jquery.js')}}"></script>
 <script>
-    $('.template-block').mouseenter(function () {
-        $('.template-block').removeClass('active');
-        $(this).addClass('active');
-    });
+    (function ($) {
+        $(window).scroll(function () {
 
-    $('.template-block').mouseleave(function () {
-        $('.template-block').removeClass('active');
-    });
-
-    $(document).on('click', '.link-modal', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        console.log('klik na link-modal');
-
-        $link = $(e.target).closest('a');
-
-        $.ajax({
-            url: $link.attr('href')
-        }).done(function (data) {
-            var $modal = $(data);
-
-            $('body').append($modal);
-            $modal.modal();
-
-            $modal.on('hidden.bs.modal', function (e) {
-                $modal.remove();
-                $('.modal-backdrop').remove();
-            })
-        }).error(function () {
-
+            if ($(window).scrollTop() > 50) {
+                $('.navbar').addClass('nav-bg');
+            } else {
+                $('.navbar').removeClass('nav-bg');
+            }
+            ;
         });
-    })
+
+        $(".navbar-toggle").on("click", function () {
+            $(this).toggleClass("active");
+        });
 
 
+
+        $('.parallax-window').parallax();
+
+        $(".feature-item").on("click", function () {
+            $(".feature-item").removeClass('active')
+            $(this).addClass("active");
+
+            var animation = $(this).data('animation');
+
+            $(".animation-item").removeClass('active');
+            $('.animation-item[data-animation="' + animation + '"]').addClass('active');
+        });
+    })(jQuery);
 </script>
+{{--<script src="{{asset('js/masonry.pkgd.min.js')}}"></script>--}}
+{{--<script>--}}
+    {{--$('.template-block').mouseenter(function () {--}}
+        {{--$('.template-block').removeClass('active');--}}
+        {{--$(this).addClass('active');--}}
+    {{--});--}}
 
-<script>
+    {{--$('.template-block').mouseleave(function () {--}}
+        {{--$('.template-block').removeClass('active');--}}
+    {{--});--}}
 
-    var $grid = $('.grid').masonry({
-        // set itemSelector so .grid-sizer is not used in layout
-        itemSelector: '.grid-item',
-        // use element for option
-        columnWidth: '.grid-sizer',
-        percentPosition: true
-    })
+    {{--$(document).on('click', '.link-modal', function (e) {--}}
+        {{--e.preventDefault();--}}
+        {{--e.stopPropagation();--}}
+
+        {{--console.log('klik na link-modal');--}}
+
+        {{--$link = $(e.target).closest('a');--}}
+
+        {{--$.ajax({--}}
+            {{--url: $link.attr('href')--}}
+        {{--}).done(function (data) {--}}
+            {{--var $modal = $(data);--}}
+
+            {{--$('body').append($modal);--}}
+            {{--$modal.modal();--}}
+
+            {{--$modal.on('hidden.bs.modal', function (e) {--}}
+                {{--$modal.remove();--}}
+                {{--$('.modal-backdrop').remove();--}}
+            {{--})--}}
+        {{--}).error(function () {--}}
+
+        {{--});--}}
+    {{--})--}}
 
 
-    // layout Masonry after each image loads
-    $grid.imagesLoaded().progress(function () {
-        $grid.masonry('layout');
-    });
-</script>
+{{--</script>--}}
+{{--<script>--}}
 
-<script src="{{asset('js/wow.min.js')}}"></script>
+    {{--var $grid = $('.grid').masonry({--}}
+        {{--// set itemSelector so .grid-sizer is not used in layout--}}
+        {{--itemSelector: '.grid-item',--}}
+        {{--// use element for option--}}
+        {{--columnWidth: '.grid-sizer',--}}
+        {{--percentPosition: true--}}
+    {{--})--}}
+
+
+    {{--// layout Masonry after each image loads--}}
+    {{--$grid.imagesLoaded().progress(function () {--}}
+        {{--$grid.masonry('layout');--}}
+    {{--});--}}
+{{--</script>--}}
+
+<script src="{{asset('js/wow.js')}}"></script>
 <script>
     new WOW().init();
 </script>
