@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\FeedbackService;
 use Illuminate\Http\Request;
 
 class BoxController extends Controller
@@ -80,5 +81,11 @@ class BoxController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showFeedback($id)
+    {
+        $feedbacks = FeedbackService::getFeedbacksForBox($id);
+        return view('public.feedback.show', compact(['feedbacks']));
     }
 }

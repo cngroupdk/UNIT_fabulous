@@ -83,4 +83,10 @@ class FeedbackService
 
         return true;
     }
+
+    public function getFeedbackForBox($id)
+    {
+        $box = BoxService::getById($id);
+        return $box->feedbacks;
+    }
 }
