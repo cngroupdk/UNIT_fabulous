@@ -31,9 +31,9 @@ Route::get('/home', 'HomeController@index');
 //Route::get('/wizard/preview','WizardController@showPreview');
 //Route::post('/wizard','WizardController@create');
 
-Route::get('/wizard','WizardController@general');
+Route::get('/wizard', 'WizardController@general');
 //Route::post('/wizard/general','WizardController@general');
-Route::get('/wizard/categories','WizardController@categories');
+Route::get('/wizard/categories', 'WizardController@categories');
 //Route::post('/wizard/categories','WizardController@categories');
 //Route::get('/wizard/emails','WizardController@emails');
 //Route::post('/wizard/emails','WizardController@emails');
@@ -41,7 +41,10 @@ Route::get('/wizard/categories','WizardController@categories');
 //Route::get('/wizard','WizardController@create');
 
 Route::post('/home', 'HomeController@search');
-Route::get('/{code}', 'FeedbackController@index');
+
+
+Route::get('/{code}', 'FeedbackController@create');
+Route::post('/{code}', 'FeedbackController@store');
 
 Route::group(['middleware' => ['auth']], function () {
 

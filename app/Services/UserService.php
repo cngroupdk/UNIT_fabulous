@@ -85,4 +85,16 @@ class UserService
 
         return true;
     }
+
+    /**
+     * @param string $email
+     *
+     * @return User|null
+     */
+    public function getByEmail($email)
+    {
+        $user = User::where('email', $email)->first();
+
+        return $user;
+    }
 }

@@ -122,6 +122,8 @@
         </div>
     </section>
 
+
+
     {{--<section id="templates">--}}
     {{--<div class="container">--}}
     {{--<div class="row">--}}
@@ -220,6 +222,7 @@
             </div>
         </div>
     </section>
+
     <section id="newsletter">
         <div class="container">
             <div class="row">
