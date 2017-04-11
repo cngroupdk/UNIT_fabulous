@@ -242,6 +242,89 @@
         </div>
     </section>
 
+    <section class="homepage-section-b">
+
+        <div class="container ">
+            <h2>What do our users say</h2>
+
+            <div class="row homepage-users-recommendations">
+
+                <div class="col-md-6 homepage-user-feedback homepage-user-feedback-1">
+                    <div class="col-md-3 col-xs-4">
+                        <img src="{{ asset('img/homepage-feedback-face/home-feedback-face-1.jpg') }}"
+                             alt="Our client's photo-sport center owner"
+                             class="img-circle img-responsive">
+                    </div>
+                    <div class="col-md-9 col-xs-8">
+                        <h3>Name XY, Athlete</h3>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 homepage-user-feedback homepage-user-feedback-1">
+                    <div class="col-md-3 col-xs-4">
+                        <img src="{{ asset('img/homepage-feedback-face/home-feedback-face-2.jpg') }}"
+                             alt="Our client's photo-sport center owner"
+                             class="img-circle img-responsive">
+                    </div>
+                    <div class="col-md-9 col-xs-8">
+                        <h3>Name XY, Sport Center Owner</h3>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12 homepage-user-feedback homepage-user-feedback-2">
+                    <div class="col-md-9 col-md-push-0 col-xs-8 col-xs-push-4">
+                        <h3>Name XY, Instructor</h3>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                            ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                    <div class="col-md-3 col-md-pull-0 col-xs-4 col-xs-pull-8">
+                        <img src="{{ asset('img/homepage-feedback-face/home-feedback-face-3.jpg') }}"
+                             alt="Our client's photo-team organiser"
+                             class="img-circle img-responsive">
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12 homepage-user-feedback homepage-user-feedback-2">
+                    <div class="col-md-9 col-md-push-0 col-xs-8 col-xs-push-4">
+                        <h3>Name XY, Organiser</h3>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                            ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                    <div class="col-md-3 col-md-pull-0 col-xs-4 col-xs-pull-8">
+                        <img src="{{ asset('img/homepage-feedback-face/home-feedback-face-4.jpg') }}"
+                             alt="Our client's photo-team organiser"
+                             class="img-circle img-responsive">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </section>
+
+
     <section id="newsletter">
         <div class="container">
             <div class="row">
