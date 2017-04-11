@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MailEvent;
+use App\Http\Requests\CreateBoxRequest;
 use App\Http\Requests\WizardStoreCategoriesRequest;
 use App\Http\Requests\WizardStoreEmailsRequest;
 use App\Http\Requests\WizardStoreGeneralRequest;
+use Facades\App\Services\BoxService;
+use Facades\App\Services\CategoryService;
 
 class WizardController extends Controller
 {
@@ -28,7 +32,7 @@ class WizardController extends Controller
 
     public function showCategories()
     {
-        if (\Session::has('general')) {
+        if (! \Session::has('general')) {
             return redirect()->action('WizardController@showGeneral');
         }
 
@@ -88,5 +92,44 @@ class WizardController extends Controller
         $emailData = \Session::get('emails');
 
         return view('wizard.preview', compact(['generalData', 'categoriesData', 'emailData']));
+    }
+
+    public function create(CreateBoxRequest $request)
+    {
+        // vytvorenie boxu
+        $generalData = \Session::get('general');
+
+        $box = BoxService::create([
+            'user_id'      => \Auth::user(),
+            'name'         => $generalData->name,
+            'description'  => $generalData->description,
+            'private'      => $generalData->private
+        ]);
+
+        // vytvorenie kategorii
+        $categoriesData = \Session::get('categories');
+
+        foreach ($categoriesData->categories as $category) {
+            $newCategory = CategoryService::create([
+                'user_id' => \Auth::user(),
+                'name'    => $category
+            ]);
+            $box->categories()->attach($newCategory->id);
+        }
+
+        // odoslanie emailov
+        $emailData = \Session::get('emails');
+
+        // todo email text
+        foreach ($emailData->emails as $email) {
+            event(new MailEvent(
+                null,
+                trans('emails.subject_prefix') . ' ' . $box->name),
+                trans('emails.box-invitation', ['box_code' => $box->code]),
+                $email
+            );
+        }
+
+        \Session::forget(['general', 'categories', 'emails']);
     }
 }
