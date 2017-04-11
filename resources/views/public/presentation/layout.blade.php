@@ -11,6 +11,7 @@
     <link href="{{asset('css/presentation.css')}}" rel="stylesheet">
     <link href="{{asset('css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('css/select2.css')}}" rel="stylesheet">
+    <link href="{{asset('css/flag-icon.min.css')}}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -190,6 +191,8 @@
                 @if(Auth::check())
                     <li class="wow fadeInDown" data-wow-delay=".8s">
                         <a href="#">{{trans('presentation.menu.admin')}}</a>
+                    </li>
+                    <li class="wow fadeInDown" data-wow-delay=".8s">
                         <a href="{{action('Auth\LoginController@logout')}}">{{trans('presentation.menu.logout')}}</a>
                     </li>
 
@@ -202,13 +205,24 @@
                     </li>
                 @endif
 
-                <li class="wow fadeInDown" data-wow-delay=".8s">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-                        <span class="caret"></span></button>
+                {{--<li class="wow fadeInDown" data-wow-delay=".8s">--}}
+                    {{--<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example--}}
+                        {{--<span class="caret"></span></button>--}}
+                    {{--<ul class="dropdown-menu">--}}
+                        {{--<li><a href="#">HTML</a></li>--}}
+                        {{--<li><a href="#">CSS</a></li>--}}
+                        {{--<li><a href="#">JavaScript</a></li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
+
+                <li class="dropdown wow fadeInDown" data-wow-delay=".8s">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="flag-icon flag-icon-{{Session::get('lang') =='en' ? 'gb':Session::get('lang')}}"></span>
+                    </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">HTML</a></li>
-                        <li><a href="#">CSS</a></li>
-                        <li><a href="#">JavaScript</a></li>
+                        <li><a href="{{action('HomeController@changeLang','sk')}}"><span class="flag-icon flag-icon-sk"></span></a></li>
+                        <li><a href="{{action('HomeController@changeLang','cz')}}"><span class="flag-icon flag-icon-cz"></span></a></li>
+                        <li><a href="{{action('HomeController@changeLang','en')}}"><span class="flag-icon flag-icon-gb"></span></a></li>
                     </ul>
                 </li>
             </ul>
@@ -249,6 +263,7 @@
 </footer>
 
 <script src="{{asset('js/jquery.js')}}"></script>
+<script src="{{asset('js/bootstrap.js')}}"></script>
 <script>
 	(function ($) {
 		$(window).scroll(function () {
