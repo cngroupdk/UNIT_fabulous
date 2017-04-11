@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Facades\App\Services\FeedbackService;
+use Facades\App\Services\BoxService;
 use Illuminate\Http\Request;
 
 class FeedbackController extends Controller

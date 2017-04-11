@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('public.presentation.home');
-});
+Route::get('/', 'HomeController@index');
 
 
 Route::get('bootstrap', function () {
@@ -23,3 +21,9 @@ Route::get('bootstrap', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::post('/home', 'HomeController@search');
+Route::get('/{code}', 'FeedbackController@index');
+
+Route::group(['middleware' => ['auth']], function () {
+
+});

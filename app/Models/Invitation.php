@@ -16,15 +16,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * App\Models\Invitation
  *
- * @property int $id
- * @property int $user_id
- * @property int $box_id
- * @property string $email
- * @property string $token
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
- * @property \Carbon\Carbon $deleted_at
- * @property-read \App\Models\Box $box
+ * @property int                   $id
+ * @property int                   $user_id
+ * @property int                   $box_id
+ * @property string                $email
+ * @property string                $token
+ * @property \Carbon\Carbon        $created_at
+ * @property \Carbon\Carbon        $updated_at
+ * @property \Carbon\Carbon        $deleted_at
+ * @property-read \App\Models\Box  $box
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Invitation whereBoxId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Invitation whereCreatedAt($value)

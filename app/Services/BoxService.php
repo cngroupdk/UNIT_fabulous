@@ -26,13 +26,13 @@ class BoxService
             $box->{$key} = $value;
         }
 
+        $box->code = uniqid();
         try {
             $box->save();
         } catch (\Exception $e) {
             return false;
         }
 
-        $box->code = '#'.uniqid();
         return $box;
     }
 
