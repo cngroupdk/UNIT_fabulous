@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Http\Requests\RegistrationRequest;
+use App\Models\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -40,21 +41,6 @@ class RegisterController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
-    }
-
-    /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
@@ -62,10 +48,26 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // todo
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function register(RegistrationRequest $request)
+    {
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
+    }
+
+    public function showRegistrationForm()
+    {
+        return view('auth.register');
     }
 }

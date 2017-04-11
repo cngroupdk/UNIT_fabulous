@@ -91,7 +91,10 @@
 
                 @else
                     <li class="wow fadeInDown" data-wow-delay=".8s">
-                        <a href="#">{{trans('menu.login')}}</a>
+                        <a href="{{ action('Auth\LoginController@showLoginForm') }}">{{trans('menu.login')}}</a>
+                    </li>
+                    <li class="wow fadeInDown" data-wow-delay=".8s">
+                        <a href="{{ action('Auth\RegisterController@showRegistrationForm') }}">{{trans('menu.register')}}</a>
                     </li>
                 @endif
 
