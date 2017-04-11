@@ -25,8 +25,8 @@
     <style>
         .content {
             padding-top: 80px;
-            background: #f5f5f5;
-            padding-bottom: 80px;
+            background: #5e5e5e;
+            padding-bottom: 20px;
         }
 
         ul.wizard-steps {
@@ -60,7 +60,7 @@
             transition: all .2s;
         }
 
-        .wizard-wrapper {
+        .wizard-wrapper, .box-wrapper {
             min-height: 400px;
             height: auto;
 
@@ -128,6 +128,47 @@
         .tag {
             padding: 2px 3px;
         }
+
+        .rating{
+            opacity: .4;
+        }
+
+        .rating.active{
+            opacity: 1;
+        }
+
+
+        .category-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .category-list li {
+            position: relative;
+            border-bottom: 1px solid #ededed;
+        }
+
+        .category-list li:last-of-type{
+            border-bottom:none;
+        }
+        .category-list li label {
+            font-size:24px;
+            white-space: pre-line;
+            word-break: break-all;
+            padding: 15px 60px 15px 15px;
+            display: inline-block;
+            line-height: 1.2;
+            font-weight: 200;
+            transition: color 0.4s;
+        }
+
+        .box-wrapper .form-group{
+            border-top: 1px solid #ededed;
+            padding: 10px 0;
+        }
+
+
     </style>
 </head>
 <body>
@@ -338,6 +379,19 @@
 <script src="{{asset('js/wow.js')}}"></script>
 <script>
 	new WOW().init();
+</script>
+
+<script>
+    $('.rating').click(function(){
+        $(this).siblings('.rating').removeClass('active');
+        $(this).addClass('active');
+
+        var value = $(this).prevAll('.rating').length - 1;
+        $(this).closest('li').find('inpu').val(value);
+
+        console.log(value);
+
+    })
 </script>
 </body>
 </html>
