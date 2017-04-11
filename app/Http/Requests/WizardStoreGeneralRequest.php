@@ -25,7 +25,6 @@ class WizardStoreGeneralRequest extends FormRequest
     {
         return [
             'name'        => 'required|string|max:255|unique:boxes_boxes,name',
-            'private'     => 'required|numeric|min:0|max:1',
             'description' => 'string|max:255'
         ];
     }

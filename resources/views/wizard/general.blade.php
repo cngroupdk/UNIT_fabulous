@@ -5,6 +5,7 @@
     <form method="post" action="{{action('WizardController@storeGeneral')}}">
         {!! csrf_field() !!}
 
+
         <div class="row">
 
             <div class="col-md-6 col-md-push-3 wizard-wrapper">

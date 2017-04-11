@@ -21,7 +21,6 @@ class WizardController extends Controller
 
     public function storeGeneral(WizardStoreGeneralRequest $request)
     {
-
         $generalData = [
             'name'        => $request->name,
             'private'     => $request->private,
@@ -33,7 +32,6 @@ class WizardController extends Controller
 
     public function showCategories()
     {
-
 
         if (! \Session::has('general')) {
             return redirect()->action('WizardController@showGeneral');
