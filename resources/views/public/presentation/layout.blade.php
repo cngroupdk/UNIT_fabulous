@@ -216,7 +216,6 @@
     </div><!-- /.container-fluid -->
 </nav>
 
-
 @yield('banner')
 
 <div class="content">
