@@ -24,9 +24,9 @@ class ReactionToFeedbackRequest extends FormRequest
     public function rules()
     {
         return [
-            'feedback_ids.*'   => 'required|exists:boxes_feedbacks,id',
-            'feedback_notes.*' => 'string|max:255',
-            'feedback_stars.*' => 'required|numeric|min:-2|max:2'
+            'feedback_ids.*'       => 'required|exists:boxes_feedbacks,id',
+            'feedback_comments.*'  => 'string|max:255',
+            'feedback_favorites.*' => 'required|numeric|min:0|max:1'
         ];
     }
 }

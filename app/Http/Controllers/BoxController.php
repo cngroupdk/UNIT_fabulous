@@ -90,14 +90,21 @@ class BoxController extends Controller
         return view('public.feedback.show', compact(['feedbacks']));
     }
 
-    public function storeReactionToFeedback(ReactionToFeedbackRequest $request)
+    public function storeReactionToFeedback($id, ReactionToFeedbackRequest $request)
     {
-        $notes = $request->feedback_notes;
-        $stars = $request->feedback_stars;
+        $ids = $request->feedback_ids;
+        $comments = $request->feedback_comments;
+        $favorites = $request->feedback_favorites;
 
-        foreach ($request->feedback_ids as $fid) {
-            $feedback = FeedbackService::getById($fid);
+        for ($i = 0; $i < count($request->feedback_ids); ++$i) {
+            $reaction = [
+                'comment'  => $comments[$i],
+                'favorite' => $favorites[$i]
+            ];
 
+            FeedbackService::update($ids[$i], $reaction);
         }
+
+        return redirect()->action('BoxController@showFeedback', [$id]);
     }
 }

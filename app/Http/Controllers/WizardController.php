@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Events\MailEvent;
-use App\Http\Requests\CreateBoxRequest;
 use App\Http\Requests\WizardStoreCategoriesRequest;
 use App\Http\Requests\WizardStoreEmailsRequest;
 use App\Http\Requests\WizardStoreGeneralRequest;
@@ -23,7 +22,7 @@ class WizardController extends Controller
     {
         $generalData = [
             'name'        => $request->name,
-            'private'     => $request->private,
+            'private'     => $request->has('private'),
             'description' => $request->description
         ];
 
