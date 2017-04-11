@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'migrations' => 'migrations',
+    'migrations' => 'boxes_migrations',
 
     /*
     |--------------------------------------------------------------------------
