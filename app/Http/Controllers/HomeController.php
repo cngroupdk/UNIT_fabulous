@@ -18,6 +18,6 @@ class HomeController extends Controller
 
     public function search(SearchRequest $request)
     {
-        return redirect()->action('FeedbackController@index', [$request->code]);
+        return redirect()->action('FeedbackController@create', [$request->code]);
     }
 }
