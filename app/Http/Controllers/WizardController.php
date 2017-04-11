@@ -32,14 +32,18 @@ class WizardController extends Controller
             return redirect()->action('WizardController@showGeneral');
         }
 
-        $categories = \Session::get('categories');
+        $categoriesData = \Session::get('categories');
 
-        return view('wizard.categories', compact(['categories']));
+        return view('wizard.categories', compact(['categoriesData']));
     }
 
     public function storeCategories(WizardStoreCategoriesRequest $request)
     {
-        \Session::put('categories', $request->categories);
+        $categoriesData = [
+            'categories' => $request->categories
+        ];
+
+        \Session::put('categories', $categoriesData);
     }
 
     public function showEmails()
@@ -80,9 +84,9 @@ class WizardController extends Controller
         }
 
         $generalData = \Session::get('general');
-        $categories = \Session::get('categories');
+        $categoriesData = \Session::get('categories');
         $emailData = \Session::get('emails');
 
-        return view('wizard.preview', compact(['generalData', 'categories', 'emailData']));
+        return view('wizard.preview', compact(['generalData', 'categoriesData', 'emailData']));
     }
 }
