@@ -18,4 +18,7 @@ return [
     'text'     => 'Comment',
     'favorite' => 'Favorite',
 
+    'message' => [
+        'success' => 'Feedback successfully created.'
+    ]
 ];
