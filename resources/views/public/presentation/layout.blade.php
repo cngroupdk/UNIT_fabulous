@@ -47,16 +47,29 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">
-                {{--<img src="{{logo('light-small')}}" alt="{{trans('presentation.logo-alt')}}"--}}
-                     {{--class="img-responsive logo-light">--}}
-                {{--<img src="{{logo('dark-small')}}" alt="{{trans('presentation.logo-alt')}}"--}}
-                     {{--class="img-responsive logo-dark">--}}
+                tellMe Box!
             </a>
         </div>
 
         <?php $controllerMethod = str_replace('App\\Http\\Controllers\\', '', substr(Route::currentRouteAction(), (strpos(Route::currentRouteAction(), '@') + 1))); ?>
                 <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                @yield('navbar-left')
+                <li class="wow fadeInDown" data-wow-delay="0s">
+                    <a href="#">{{trans('menu.features')}}</a>
+                </li>
+                <li class="wow fadeInDown" data-wow-delay=".2s">
+                    <a href="#">{{trans('menu.pricing')}}</a>
+                </li>
+                <li class="wow fadeInDown" data-wow-delay=".2s">
+                    <a href="#">{{trans('menu.testimonials')}}</a>
+                </li>
+
+                <li class="wow fadeInDown" data-wow-delay=".2s">
+                    <a href="#">{{trans('menu.contact')}}</a>
+                </li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 {{--<li class="wow fadeInDown {{$controllerMethod=='index' ? 'active':''}}" data-wow-delay="0s"><a--}}
                             {{--href="{{action('Presentation\PresentationController@index',$domain)}}">{{trans('presentation.menu.homepage')}}</a>--}}
@@ -71,15 +84,26 @@
                             {{--href="{{action('Presentation\PresentationController@contact',$domain)}}">{{trans('presentation.menu.contact')}}</a>--}}
                 {{--</li>--}}
 
-                {{--@if(Auth::check())--}}
-                    {{--<li class="menu-demo wow fadeInDown" data-wow-delay=".8s"><a--}}
-                                {{--href="{{action('Builder\WebBuilder\SitesController@index')}}">{{trans('presentation.menu.admin')}}</a>--}}
-                    {{--</li>--}}
-                {{--@else--}}
-                    {{--<li class="menu-demo wow fadeInDown" data-wow-delay=".8s"><a--}}
-                                {{--href="{{action('Auth\LoginController@getLogin')}}">{{trans('presentation.menu.login')}}</a>--}}
-                    {{--</li>--}}
-                {{--@endif--}}
+                @if(Auth::check())
+                    <li class="wow fadeInDown" data-wow-delay=".8s">
+                        <a href="#">{{trans('presentation.menu.admin')}}</a>
+                    </li>
+
+                @else
+                    <li class="wow fadeInDown" data-wow-delay=".8s">
+                        <a href="#">{{trans('menu.login')}}</a>
+                    </li>
+                @endif
+
+                <li class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#">CSS</a></li>
+                        <li><a href="#">JavaScript</a></li>
+                    </ul>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
