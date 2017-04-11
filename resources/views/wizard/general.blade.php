@@ -21,9 +21,7 @@
                 </div>
                 <div class="form-group{{$errors->has('description') ? ' has-error': ''}}">
                     <label for="wizard-description">Name</label>
-                    <textarea id="wizard-description" name="description" class="form-control" rows="3">
-                        {{$generalData != null ? $generalData['description'] : ''}}
-                    </textarea>
+                    <textarea id="wizard-description" name="description" class="form-control" rows="3">{{$generalData != null ? $generalData['description'] : ''}}</textarea>
 
                     @if($errors->has('description'))
                         <span class="help-block">{{$errors->first('description')}}</span>
@@ -45,7 +43,7 @@
             </div>
             <div class="col-md-3 col-xs-6 wizard-side">
                 <div class="wizard-btn-wrapper">
-                    <button type="submit" class="btn btn-primary btn-lg">next</button>
+                    <button type="submit" class="btn btn-primary btn-lg">{{trans('pagination.next')}}</button>
                 </div>
             </div>
         </div>

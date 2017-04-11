@@ -24,8 +24,8 @@ class WizardStoreEmailsRequest extends FormRequest
     public function rules()
     {
         return [
-            'emails.*' => 'string|max:255',
-            'text'     => 'string|max:255'
+            'emails.*' => 'nullable|string|max:255',
+            'text'     => 'nullable|string|max:255'
         ];
     }
 }
