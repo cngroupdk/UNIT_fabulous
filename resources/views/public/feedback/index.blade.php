@@ -19,7 +19,7 @@
                         <ul class="category-list">
                             @foreach($box->categories as $category)
                                 <li>
-                                    <input type="hidden" name="category_{{$category->name}}" value="0">
+                                    <input type="hidden" name="category_{{$category->id}}" value="0">
                                     <label>{{$category->name}}</label>
                                     <span class="pull-right">
                                         <i class="fa fa-fw fa-3x fa-frown-o rating"></i>
