@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateBoxRequest extends FormRequest
+class WizardStoreEmailsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class CreateBoxRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,7 +24,8 @@ class CreateBoxRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'emails.*' => 'required|email|max:255',
+            'text'     => 'string|max:255'
         ];
     }
 }
