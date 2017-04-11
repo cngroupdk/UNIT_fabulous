@@ -16,7 +16,7 @@ return [
     'title' => 'Výsledky',
     'email' => 'E-mailová adresa',
     'text' => 'Komentár',
-    'favorite' => 'Obluben0',
+    'favorite' => 'Oblubené',
 
     'form'=>[
         'comment'=> 'Komentár',
