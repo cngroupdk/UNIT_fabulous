@@ -63,8 +63,10 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
 
         $user->notify(new Registration($user, $request->password));
-        
+
         $this->guard()->login($user);
+
+        flash()->success(trans('flash.auth.register.success'));
 
         return $this->registered($request, $user)
             ?: redirect($this->redirectPath());
