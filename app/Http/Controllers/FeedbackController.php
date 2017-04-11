@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateFeedbackRequest;
-use App\Notifications\Registration;
 use Facades\App\Services\BoxService;
 use Facades\App\Services\FeedbackService;
+use Facades\App\Services\RatingService;
 use Facades\App\Services\UserService;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class FeedbackController extends Controller
 {
@@ -17,9 +17,18 @@ class FeedbackController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($code)
     {
+        $box = null;
+        /*$box = BoxService::getByCode($code);
 
+        if ($box == null) {
+            flash()->error(trans('flash.box.not-found'));
+
+            return redirect()->action('HomeController@index');
+        }
+        */
+        return view('public.feedback.index', compact(['box']));
     }
 
     /**
@@ -27,17 +36,9 @@ class FeedbackController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($boxCode)
+    public function create()
     {
-        $box = BoxService::getByCode($boxCode);
-
-        if ($box == null) {
-            flash()->error(trans('flash.box.not-found'));
-
-            return redirect()->action('HomeController@index');
-        }
-
-        return view('public.feedback.index', compact(['box']));
+        //
     }
 
     /**
@@ -47,7 +48,7 @@ class FeedbackController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store($boxCode, CreateFeedbackRequest $request)
+    public function store(Request $request)
     {
         $box = BoxService::getByCode($boxCode);
 
@@ -71,11 +72,19 @@ class FeedbackController extends Controller
             $user->notify(new Registration($user, $password));
         }
 
-        FeedbackService::create([
+        $feedback = FeedbackService::create([
             'user_id' => $user->id,
             'box_id'  => $box->id,
             'comment' => $request->comment
         ]);
+
+        foreach ($box->categories as $category) {
+            RatingService::create([
+                'feedback_id' => $feedback->id,
+                'category_id' => $category->id,
+                'rating'      => Input::get('category_'.$category->id)
+            ]);
+        }
 
         flash()->success(trans('feedback.message.success'));
 

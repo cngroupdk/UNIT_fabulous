@@ -1,18 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Lukas Figura
- * Date: 11/04/2017
- * Time: 11:58
- */
 
 return [
-    'form'    => [
-        'comment' => 'Comment',
-        'email'   => 'E-mail',
-        'submit'  => 'Submit'
-    ],
-    'message' => [
-        'success' => 'Feedback successfully created.'
-    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Authentication Language Lines
+    |--------------------------------------------------------------------------
+    |
+    | The following language lines are used during authentication for various
+    | messages that we need to display to the user. You are free to modify
+    | these language lines according to your application's requirements.
+    |
+    */
+
+    'title' => 'Results',
+    'email' => 'E-mail address',
+    'text' => 'Comment',
+
 ];

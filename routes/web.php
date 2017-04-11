@@ -42,11 +42,11 @@ Route::get('/wizard/create','WizardController@create');
 
 Route::post('/home', 'HomeController@search');
 
+Route::get('/lang/{code}', 'HomeController@changeLang');
 
 Route::get('/{code}', 'FeedbackController@create');
 Route::post('/{code}', 'FeedbackController@store');
 
-Route::get('/box/{id}/feedback', 'BoxController@showFeedback');
 
 Route::group(['middleware' => ['auth']], function () {
 

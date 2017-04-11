@@ -97,9 +97,4 @@ class BoxService
 
         return $box;
     }
-
-    public function getById($id)
-    {
-        return Box::findOrFail($id);
-    }
 }

@@ -20,4 +20,13 @@ class HomeController extends Controller
     {
         return redirect()->action('FeedbackController@create', [$request->code]);
     }
+
+    public function changeLang($langCode)
+    {
+        if ($langCode == 'sk' || $langCode == 'cz' || $langCode == 'en') {
+            \Session::put('lang', $langCode);
+        }
+
+        return redirect()->back();
+    }
 }
