@@ -11,17 +11,28 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/wizard', 'WizardController@showGeneral');
+    Route::post('/wizard/general', 'WizardController@storeGeneral');
+    Route::get('/wizard/categories', 'WizardController@showCategories');
+    Route::post('/wizard/categories', 'WizardController@storeCategories');
+    Route::get('/wizard/emails', 'WizardController@showEmails');
+    Route::post('/wizard/emails', 'WizardController@storeEmails');
+    Route::get('/wizard/preview', 'WizardController@showPreview');
+
+    Route::get('/wizard/create', 'WizardController@create');
 
 
-Route::get('bootstrap', function () {
-    return view('bootstrap');
+    Route::get('/boxes', 'BoxController@index');
+    Route::get('/boxes/{id}', 'BoxController@showFeedback');
 });
 
 Route::get('/logout', 'Auth\LoginController@logout');
-
 Auth::routes();
 
+
+Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 
 Route::post('/home', 'HomeController@search');
@@ -32,15 +43,3 @@ Route::get('/{code}', 'FeedbackController@create');
 Route::post('/{code}', 'FeedbackController@store');
 
 
-Route::group(['middleware' => ['auth']], function () {
-Route::get('/wizard','WizardController@showGeneral');
-Route::post('/wizard/general','WizardController@storeGeneral');
-Route::get('/wizard/categories','WizardController@showCategories');
-Route::post('/wizard/categories','WizardController@storeCategories');
-Route::get('/wizard/emails','WizardController@showEmails');
-Route::post('/wizard/emails','WizardController@storeEmails');
-Route::get('/wizard/preview','WizardController@showPreview');
-
-Route::get('/wizard/create','WizardController@create');
-
-});

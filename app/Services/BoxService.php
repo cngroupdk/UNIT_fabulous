@@ -97,4 +97,16 @@ class BoxService
 
         return $box;
     }
+
+    /**
+     * @param integer $id
+     *
+     * @return null|Box null => unsuccessfully; instance of Feedback with $code
+     */
+    public function getById($id)
+    {
+        $box = Box::find($id);
+
+        return $box;
+    }
 }

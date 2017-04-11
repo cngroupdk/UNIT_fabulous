@@ -15,7 +15,11 @@ class BoxController extends Controller
      */
     public function index()
     {
-        //
+        $user = \Auth::user();
+
+        $boxes = $user->boxes;
+
+        return view('public.box.index', compact(['boxes']));
     }
 
     /**
@@ -31,7 +35,8 @@ class BoxController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -42,7 +47,8 @@ class BoxController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -53,7 +59,8 @@ class BoxController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -64,8 +71,9 @@ class BoxController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -76,7 +84,8 @@ class BoxController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -87,6 +96,7 @@ class BoxController extends Controller
     public function showFeedback($id)
     {
         $feedbacks = FeedbackService::getFeedbacksForBox($id);
+
         return view('public.feedback.show', compact(['feedbacks']));
     }
 
@@ -98,11 +108,11 @@ class BoxController extends Controller
 
         for ($i = 0; $i < count($request->feedback_ids); ++$i) {
             $reaction = [
-                'comment'  => $comments[$i],
-                'favorite' => $favorites[$i]
+                'comment'  => $comments[ $i ],
+                'favorite' => $favorites[ $i ]
             ];
 
-            FeedbackService::update($ids[$i], $reaction);
+            FeedbackService::update($ids[ $i ], $reaction);
         }
 
         return redirect()->action('BoxController@showFeedback', [$id]);
