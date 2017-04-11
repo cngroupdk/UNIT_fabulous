@@ -18,12 +18,13 @@ Route::get('bootstrap', function () {
     return view('bootstrap');
 });
 
+Route::get('/logout', 'Auth\LoginController@logout');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
 Route::post('/home', 'HomeController@search');
-
 
 
 Route::get('/box/{id}/feedback', 'BoxController@showFeedback');
@@ -38,7 +39,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/wizard/preview','WizardController@showPreview');
 
     Route::get('/wizard/create','WizardController@create');
+
 });
+
+Route::get('/lang/{code}', 'HomeController@changeLang');
 
 Route::get('/{code}', 'FeedbackController@create');
 Route::post('/{code}', 'FeedbackController@store');

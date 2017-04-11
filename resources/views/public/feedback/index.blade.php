@@ -1,49 +1,53 @@
 @extends('public.presentation.layout')
 
 @section('content')
+    <div class="container" data-speed=".3" data-parallax="scroll">
+        <h1>{{trans('feedback.title')}}</h1>
+        <table class="table table-hover">
+            <thead>
+                <th>{{trans('feedback.email')}}</th>
+                <th>{{trans('feedback.text')}}</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td>jozko@mrkvicka.com</td>
+                <td>...</td>
+                <td>:D</td>
+                <td>:/</td>
+                <td>:(</td>
+                <td>:)</td>
+            </tr>
+            <tr>
+                <td>jozko@mrkvicka.com</td>
+                <td>...</td>
+                <td>:D</td>
+                <td>:/</td>
+                <td>:(</td>
+                <td>:)</td>
+            </tr>
+            <tr>
+                <td>jozko@mrkvicka.com</td>
+                <td>...</td>
+                <td>:D</td>
+                <td>:/</td>
+                <td>:(</td>
+                <td>:)</td>
+            </tr>
+            <tr>
+                <td>jozko@mrkvicka.com</td>
+                <td>...</td>
+                <td>:D</td>
+                <td>:/</td>
+                <td>:(</td>
+                <td>:)</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <section id="feedback">
-        <div class="container">
-            @include('public.presentation.errors')
-
-            <form action="{{action('FeedbackController@store',$box->code)}}" method="POST">
-                {!! csrf_field() !!}
-                <input type="hidden" name="box_code" value="{{$box->code}}">
-                <div class="row">
-
-                    <h1>{{$box->name}}</h1>
-                    <h4>{{$box->description}}</h4>
-
-                </div>
-
-                <div class="row">
-                    <div class="form-group">
-                        <label for="email">{{trans('feedback.form.email')}}</label>
-                        <input name="email" id="email" class="form-control">
-                    </div>
-                </div>
-
-                @foreach($box->categories as $category)
-                    <div class="row">
-                        <div class="col-md-6">{{$category->name}}</div>
-                        <div class="col-md-6">
-                            <input type="text" name="category_{{$category->id}}">
-                        </div>
-                    </div>
-                @endforeach
-
-                <div class="row">
-                    <div class="form-group">
-                        <label for="comment">{{trans('feedback.form.comment')}}</label>
-                        <textarea name="comment" id="comment" class="form-control" cols="30" rows="10"></textarea>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <button type="submit" class="btn btn-success">{{trans('feedback.form.submit')}}</button>
-                </div>
-            </form>
-        </div>
-    </section>
 
 @endsection
