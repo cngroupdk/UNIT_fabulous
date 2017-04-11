@@ -51,8 +51,8 @@
             </a>
         </div>
 
-        <?php $controllerMethod = str_replace('App\\Http\\Controllers\\', '', substr(Route::currentRouteAction(), (strpos(Route::currentRouteAction(), '@') + 1))); ?>
-                <!-- Collect the nav links, forms, and other content for toggling -->
+    <?php $controllerMethod = str_replace('App\\Http\\Controllers\\', '', substr(Route::currentRouteAction(), (strpos(Route::currentRouteAction(), '@') + 1))); ?>
+    <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 @yield('navbar-left')
@@ -72,16 +72,16 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {{--<li class="wow fadeInDown {{$controllerMethod=='index' ? 'active':''}}" data-wow-delay="0s"><a--}}
-                            {{--href="{{action('Presentation\PresentationController@index',$domain)}}">{{trans('presentation.menu.homepage')}}</a>--}}
+                {{--href="{{action('Presentation\PresentationController@index',$domain)}}">{{trans('presentation.menu.homepage')}}</a>--}}
                 {{--</li>--}}
                 {{--<li class="wow fadeInDown {{$controllerMethod=='templates' ? 'active':''}}" data-wow-delay=".2s"><a--}}
-                            {{--href="{{action('Presentation\PresentationController@templates',$domain)}}">{{trans('presentation.menu.templates')}}</a>--}}
+                {{--href="{{action('Presentation\PresentationController@templates',$domain)}}">{{trans('presentation.menu.templates')}}</a>--}}
                 {{--</li>--}}
                 {{--<li class="wow fadeInDown {{$controllerMethod=='prices' ? 'active':''}}" data-wow-delay=".4s"><a--}}
-                            {{--href="{{action('Presentation\PresentationController@prices',$domain)}}">{{trans('presentation.menu.prices')}}</a>--}}
+                {{--href="{{action('Presentation\PresentationController@prices',$domain)}}">{{trans('presentation.menu.prices')}}</a>--}}
                 {{--</li>--}}
                 {{--<li class="wow fadeInDown {{$controllerMethod=='contact' ? 'active':''}}" data-wow-delay=".6s"><a--}}
-                            {{--href="{{action('Presentation\PresentationController@contact',$domain)}}">{{trans('presentation.menu.contact')}}</a>--}}
+                {{--href="{{action('Presentation\PresentationController@contact',$domain)}}">{{trans('presentation.menu.contact')}}</a>--}}
                 {{--</li>--}}
 
                 @if(Auth::check())
@@ -115,39 +115,7 @@
 
 <div class="content">
 
-
     @yield('content')
-
-    <section id="newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-
-                    <h1>{!! trans('presentation.newsletter.heading') !!}</h1>
-
-                    <p class="content-subheading">{!! trans('presentation.newsletter.subheading') !!}</p>
-
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <form method="post" action="/newsletter">
-                                {!! csrf_field() !!}
-
-                                <div class="input-group">
-                                    <input type="email" class="form-control" name="newsletter-email"
-                                           placeholder="{{ trans('presentation.newsletter.placeholder') }}" required>
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default btn-shadow"
-                                                type="submit">{{ trans('presentation.newsletter.button') }}</button>
-                                    </span>
-                                </div><!-- /input-group -->
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 </div>
 
@@ -158,13 +126,13 @@
             <div class="col-md-12">
                 <ul>
                     {{--<li class="{{$controllerMethod=='blog' ? 'active':''}}"><a--}}
-                                {{--href="{{action('Presentation\BlogController@index',$domain)}}">{{trans('presentation.menu.blog')}}</a>--}}
+                    {{--href="{{action('Presentation\BlogController@index',$domain)}}">{{trans('presentation.menu.blog')}}</a>--}}
                     {{--</li>--}}
                     {{--<li class="{{$controllerMethod=='support' ? 'active':''}}"><a--}}
-                                {{--href="{{action('Presentation\PresentationController@tutorials',$domain)}}">{{trans('presentation.menu.support')}}</a>--}}
+                    {{--href="{{action('Presentation\PresentationController@tutorials',$domain)}}">{{trans('presentation.menu.support')}}</a>--}}
                     {{--</li>--}}
                     {{--<li class="{{$controllerMethod=='support' ? 'active':''}}"><a--}}
-                                {{--href="{{action('Presentation\PresentationController@termsconditions',$domain)}}">{{trans('presentation.menu.tac')}}</a>--}}
+                    {{--href="{{action('Presentation\PresentationController@termsconditions',$domain)}}">{{trans('presentation.menu.tac')}}</a>--}}
                     {{--</li>--}}
                 </ul>
                 <p>{!! trans('presentation.partials.footer.company') !!}</p>
@@ -176,63 +144,63 @@
 <script src="{{asset('js/presentation.js')}}"></script>
 <script src="{{asset('js/masonry.pkgd.min.js')}}"></script>
 <script>
-    $('.template-block').mouseenter(function () {
-        $('.template-block').removeClass('active');
-        $(this).addClass('active');
-    });
+	$('.template-block').mouseenter(function () {
+		$('.template-block').removeClass('active');
+		$(this).addClass('active');
+	});
 
-    $('.template-block').mouseleave(function () {
-        $('.template-block').removeClass('active');
-    });
+	$('.template-block').mouseleave(function () {
+		$('.template-block').removeClass('active');
+	});
 
-    $(document).on('click', '.link-modal', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
+	$(document).on('click', '.link-modal', function (e) {
+		e.preventDefault();
+		e.stopPropagation();
 
-        console.log('klik na link-modal');
+		console.log('klik na link-modal');
 
-        $link = $(e.target).closest('a');
+		$link = $(e.target).closest('a');
 
-        $.ajax({
-            url: $link.attr('href')
-        }).done(function (data) {
-            var $modal = $(data);
+		$.ajax({
+			url: $link.attr('href')
+		}).done(function (data) {
+			var $modal = $(data);
 
-            $('body').append($modal);
-            $modal.modal();
+			$('body').append($modal);
+			$modal.modal();
 
-            $modal.on('hidden.bs.modal', function (e) {
-                $modal.remove();
-                $('.modal-backdrop').remove();
-            })
-        }).error(function () {
+			$modal.on('hidden.bs.modal', function (e) {
+				$modal.remove();
+				$('.modal-backdrop').remove();
+			})
+		}).error(function () {
 
-        });
-    })
+		});
+	})
 
 
 </script>
 
 <script>
 
-    var $grid = $('.grid').masonry({
-        // set itemSelector so .grid-sizer is not used in layout
-        itemSelector: '.grid-item',
-        // use element for option
-        columnWidth: '.grid-sizer',
-        percentPosition: true
-    })
+	var $grid = $('.grid').masonry({
+		// set itemSelector so .grid-sizer is not used in layout
+		itemSelector   : '.grid-item',
+		// use element for option
+		columnWidth    : '.grid-sizer',
+		percentPosition: true
+	})
 
 
-    // layout Masonry after each image loads
-    $grid.imagesLoaded().progress(function () {
-        $grid.masonry('layout');
-    });
+	// layout Masonry after each image loads
+	$grid.imagesLoaded().progress(function () {
+		$grid.masonry('layout');
+	});
 </script>
 
 <script src="{{asset('js/wow.min.js')}}"></script>
 <script>
-    new WOW().init();
+	new WOW().init();
 </script>
 </body>
 </html>
