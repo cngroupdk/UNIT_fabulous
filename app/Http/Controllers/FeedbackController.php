@@ -30,8 +30,6 @@ class FeedbackController extends Controller
      */
     public function create($code)
     {
-        $box = null;
-
         $box = BoxService::getByCode($code);
 
         if ($box == null) {
@@ -66,6 +64,7 @@ class FeedbackController extends Controller
             $password = uniqid();
 
             $user = UserService::create([
+                'name'     => $request->email,
                 'email'    => $request->email,
                 'password' => \Hash::make($password)
             ]);

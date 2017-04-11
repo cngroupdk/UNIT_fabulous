@@ -19,18 +19,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 @yield('navbar-left')
-                <li class="wow fadeInDown" data-wow-delay="0s">
-                    <a href="#features-grid">{{trans('menu.features')}}</a>
-                </li>
                 <li class="wow fadeInDown" data-wow-delay=".2s">
-                    <a href="#">{{trans('menu.pricing')}}</a>
-                </li>
-                <li class="wow fadeInDown" data-wow-delay=".2s">
-                    <a href="#">{{trans('menu.testimonials')}}</a>
-                </li>
-
-                <li class="wow fadeInDown" data-wow-delay=".2s">
-                    <a href="#">{{trans('menu.contact')}}</a>
+                    <a href="#testimonials">{{trans('menu.testimonials')}}</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
