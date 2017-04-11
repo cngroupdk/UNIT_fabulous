@@ -185,7 +185,7 @@
 
                 @if(Auth::check())
                     <li class="wow fadeInDown" data-wow-delay=".8s">
-                        <a href="#">{{trans('presentation.menu.admin')}}</a>
+                        <a href="{{action('BoxController@index')}}">{{trans('presentation.menu.admin')}}</a>
                     </li>
                     <li class="wow fadeInDown" data-wow-delay=".8s">
                         <a href="{{action('Auth\LoginController@logout')}}">{{trans('presentation.menu.logout')}}</a>
@@ -268,6 +268,15 @@
 			$('.animation-item[data-animation="' + animation + '"]').addClass('active');
 		});
 	})(jQuery);
+
+
+	var docHeight = $(window).height();
+	var footerHeight = $('footer').outerHeight();
+	var footerTop = $('footer').position().top + footerHeight;
+
+	if (footerTop < docHeight) {
+		$('footer').css('margin-top', (docHeight - footerTop) + 'px');
+	}
 
 	$('select').select2({
 		tags: true
