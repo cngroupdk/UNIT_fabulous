@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('public.presentation.home');
+});
+
+
+Route::get('bootstrap', function () {
+    return view('bootstrap');
 });
