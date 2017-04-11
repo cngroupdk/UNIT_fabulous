@@ -23,152 +23,9 @@
     <![endif]-->
 
     <style>
-        .content {
-            padding-top: 80px;
-            background: #5e5e5e;
-            padding-bottom: 20px;
+        .content{
+            margin-top: 80px;
         }
-
-        ul.wizard-steps {
-            position: relative;
-            list-style: none;
-            padding: 0;
-            margin-bottom: 50px;
-            margin-top: 15px;
-            text-align: center;
-        }
-
-        ul.wizard-steps li {
-            display: inline-block;
-            margin: 30px 15px 0 15px;
-        }
-
-        ul.wizard-steps li.active a .wizard-no {
-            background: #666;
-            color: #fff;
-        }
-
-        ul.wizard-steps li a .wizard-no {
-            background: rgba(0, 0, 0, 0.05);
-            color: #222;
-            padding: 17px 19px;
-            border-radius: 60px;
-            margin-right: 10px;
-            font-weight: 800;
-            -webkit-transition: all .2s;
-            -o-transition: all .2s;
-            transition: all .2s;
-        }
-
-        .wizard-wrapper, .box-wrapper {
-            min-height: 400px;
-            height: auto;
-
-            padding: 50px;
-            background: #fff;
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
-        }
-
-        .wizard-side {
-            text-align: center;
-            height: 400px;
-            display: table;
-        }
-
-        .wizard-btn-wrapper {
-            display: table-cell;
-            vertical-align: middle;
-        }
-
-        .tags {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .tags li {
-            position: relative;
-            font-size: 24px;
-            border-bottom: 1px solid #ededed;
-        }
-
-        .tags li label {
-            white-space: pre-line;
-            word-break: break-all;
-            padding: 15px 60px 15px 15px;
-            display: block;
-            line-height: 1.2;
-            font-weight: 200;
-            transition: color 0.4s;
-        }
-
-        .tags li .select2-selection__choice__remove {
-            display: none;
-            position: absolute;
-            top: 0;
-            right: 10px;
-            bottom: 0;
-            width: 40px;
-            height: 40px;
-            margin: auto 0;
-            font-size: 30px;
-            color: #cc9a9a;
-            margin-bottom: 11px;
-            transition: color 0.2s ease-out;
-        }
-
-        .tags li .select2-selection__choice__remove:after {
-            content: '×';
-        }
-
-        .tags li:hover .select2-selection__choice__remove {
-            display: block;
-        }
-
-        .tag {
-            padding: 2px 3px;
-        }
-
-        .rating{
-            opacity: .4;
-        }
-
-        .rating.active{
-            opacity: 1;
-        }
-
-
-        .category-list {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .category-list li {
-            position: relative;
-            border-bottom: 1px solid #ededed;
-        }
-
-        .category-list li:last-of-type{
-            border-bottom:none;
-        }
-        .category-list li label {
-            font-size:24px;
-            white-space: pre-line;
-            word-break: break-all;
-            padding: 15px 60px 15px 15px;
-            display: inline-block;
-            line-height: 1.2;
-            font-weight: 200;
-            transition: color 0.4s;
-        }
-
-        .box-wrapper .form-group{
-            border-top: 1px solid #ededed;
-            padding: 10px 0;
-        }
-
-
     </style>
 </head>
 <body>
@@ -210,19 +67,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 @yield('navbar-left')
-                <li class="wow fadeInDown" data-wow-delay="0s">
-                    <a href="#features-grid">{{trans('menu.features')}}</a>
-                </li>
-                <li class="wow fadeInDown" data-wow-delay=".2s">
-                    <a href="#">{{trans('menu.pricing')}}</a>
-                </li>
-                <li class="wow fadeInDown" data-wow-delay=".2s">
-                    <a href="#">{{trans('menu.testimonials')}}</a>
-                </li>
 
-                <li class="wow fadeInDown" data-wow-delay=".2s">
-                    <a href="#">{{trans('menu.contact')}}</a>
-                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
 
