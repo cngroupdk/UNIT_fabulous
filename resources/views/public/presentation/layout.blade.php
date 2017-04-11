@@ -74,11 +74,7 @@
             vertical-align: middle;
         }
 
-<<<<<<< HEAD
-        .tags{
-=======
-        .wizard-categories {
->>>>>>> 778f4636cb0fe0782c9066be5fe768015c89d2b5
+        .tags {
             margin: 0;
             padding: 0;
             list-style: none;
@@ -100,13 +96,7 @@
             transition: color 0.4s;
         }
 
-<<<<<<< HEAD
-
-
         .tags li .select2-selection__choice__remove {
-=======
-        .wizard-categories li .destroy {
->>>>>>> 778f4636cb0fe0782c9066be5fe768015c89d2b5
             display: none;
             position: absolute;
             top: 0;
@@ -125,12 +115,7 @@
             content: '×';
         }
 
-<<<<<<< HEAD
-
         .tags li:hover .select2-selection__choice__remove {
-=======
-        .wizard-categories li:hover .destroy {
->>>>>>> 778f4636cb0fe0782c9066be5fe768015c89d2b5
             display: block;
         }
     </style>
@@ -352,9 +337,9 @@
 
 <script src="{{asset('js/select-categories.js')}}"></script>
 <script>
-    $('select').select2({
-        tags: true
-    });
+	$('select').select2({
+		tags: true
+	});
 </script>
 <script src="{{asset('js/wow.js')}}"></script>
 <script>

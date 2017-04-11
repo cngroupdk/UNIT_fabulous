@@ -6,9 +6,11 @@ use App\Http\Requests\CreateFeedbackRequest;
 use App\Notifications\Registration;
 use Facades\App\Services\BoxService;
 use Facades\App\Services\FeedbackService;
+use Facades\App\Services\RatingService;
 use Facades\App\Services\UserService;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class FeedbackController extends Controller
 {
@@ -71,11 +73,19 @@ class FeedbackController extends Controller
             $user->notify(new Registration($user, $password));
         }
 
-        FeedbackService::create([
+        $feedback = FeedbackService::create([
             'user_id' => $user->id,
             'box_id'  => $box->id,
             'comment' => $request->comment
         ]);
+
+        foreach ($box->categories as $category) {
+            RatingService::create([
+                'feedback_id' => $feedback->id,
+                'category_id' => $category->id,
+                'rating'      => Input::get('category_'.$category->id)
+            ]);
+        }
 
         flash()->success(trans('feedback.message.success'));
 
