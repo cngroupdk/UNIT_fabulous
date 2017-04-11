@@ -32,5 +32,11 @@ return [
         'register' => 'Registrácia'
     ],
 
+    'newsletter'=>[
+        'heading'=>'Novinky',
+        'subheading'=>'Odoberať novinky.',
+        'button'=>'Odoberať',
+        'placeholder'=>'Vložte e-mailovú adresu',
+    ],
 
 ];
