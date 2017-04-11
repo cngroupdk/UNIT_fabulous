@@ -225,7 +225,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p>{!! trans('presentation.partials.footer.company') !!}</p>
+                <p>{!! trans('presentation.partials-footer-company') !!}</p>
             </div>
         </div>
     </div>

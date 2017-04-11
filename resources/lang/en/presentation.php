@@ -30,6 +30,8 @@ return [
         'logout' => 'Log out',
         'login' => 'Log in',
         'register' => 'Registration'
-    ]
+    ],
+
+    'partials-footer-company'=>'Fabulous s.r.o'
 
 ];
