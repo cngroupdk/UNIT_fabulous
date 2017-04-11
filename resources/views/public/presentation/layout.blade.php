@@ -4,13 +4,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index, follow">
-    <meta name="author" content="E-zone Technologies, s.r.o.">
+    <meta name="author" content="">
 
     <title>{{trans('presentation.title')}}</title>
 
     <link href="{{asset('css/presentation.css')}}" rel="stylesheet">
     <link href="{{asset('css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('css/select2.css')}}" rel="stylesheet">
+    <link href="{{asset('css/bootstrap-tagsinput.css')}}" rel="stylesheet">
     <link href="{{asset('css/flag-icon.min.css')}}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -58,7 +59,9 @@
         }
 
         .wizard-wrapper {
-            height: 400px;
+            min-height: 400px;
+            height: auto;
+
             padding: 50px;
             background: #fff;
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
@@ -119,6 +122,10 @@
         .tags li:hover .select2-selection__choice__remove {
             display: block;
         }
+
+        .tag {
+            padding: 2px 3px;
+        }
     </style>
 </head>
 <body>
@@ -161,7 +168,7 @@
             <ul class="nav navbar-nav">
                 @yield('navbar-left')
                 <li class="wow fadeInDown" data-wow-delay="0s">
-                    <a href="#">{{trans('menu.features')}}</a>
+                    <a href="#features-grid">{{trans('menu.features')}}</a>
                 </li>
                 <li class="wow fadeInDown" data-wow-delay=".2s">
                     <a href="#">{{trans('menu.pricing')}}</a>
@@ -175,18 +182,6 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                {{--<li class="wow fadeInDown {{$controllerMethod=='index' ? 'active':''}}" data-wow-delay="0s"><a--}}
-                {{--href="{{action('Presentation\PresentationController@index',$domain)}}">{{trans('presentation.menu.homepage')}}</a>--}}
-                {{--</li>--}}
-                {{--<li class="wow fadeInDown {{$controllerMethod=='templates' ? 'active':''}}" data-wow-delay=".2s"><a--}}
-                {{--href="{{action('Presentation\PresentationController@templates',$domain)}}">{{trans('presentation.menu.templates')}}</a>--}}
-                {{--</li>--}}
-                {{--<li class="wow fadeInDown {{$controllerMethod=='prices' ? 'active':''}}" data-wow-delay=".4s"><a--}}
-                {{--href="{{action('Presentation\PresentationController@prices',$domain)}}">{{trans('presentation.menu.prices')}}</a>--}}
-                {{--</li>--}}
-                {{--<li class="wow fadeInDown {{$controllerMethod=='contact' ? 'active':''}}" data-wow-delay=".6s"><a--}}
-                {{--href="{{action('Presentation\PresentationController@contact',$domain)}}">{{trans('presentation.menu.contact')}}</a>--}}
-                {{--</li>--}}
 
                 @if(Auth::check())
                     <li class="wow fadeInDown" data-wow-delay=".8s">
@@ -198,22 +193,13 @@
 
                 @else
                     <li class="wow fadeInDown" data-wow-delay=".8s">
-                        <a href="{{ action('Auth\LoginController@showLoginForm') }}">{{trans('menu.login')}}</a>
+                        <a href="{{ action('Auth\LoginController@showLoginForm') }}">{{trans('presentation.menu.login')}}</a>
                     </li>
                     <li class="wow fadeInDown" data-wow-delay=".8s">
-                        <a href="{{ action('Auth\RegisterController@showRegistrationForm') }}">{{trans('menu.register')}}</a>
+                        <a href="{{ action('Auth\RegisterController@showRegistrationForm') }}">{{trans('presentation.menu.register')}}</a>
                     </li>
                 @endif
 
-                {{--<li class="wow fadeInDown" data-wow-delay=".8s">--}}
-                    {{--<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example--}}
-                        {{--<span class="caret"></span></button>--}}
-                    {{--<ul class="dropdown-menu">--}}
-                        {{--<li><a href="#">HTML</a></li>--}}
-                        {{--<li><a href="#">CSS</a></li>--}}
-                        {{--<li><a href="#">JavaScript</a></li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
 
                 <li class="dropdown wow fadeInDown" data-wow-delay=".8s">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -230,11 +216,12 @@
     </div><!-- /.container-fluid -->
 </nav>
 
-{{--@include('vendor.flash.presentation-messages')--}}
 
 @yield('banner')
 
 <div class="content">
+
+    @include('public.flashes.show')
 
     @yield('content')
 
@@ -245,17 +232,6 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <ul>
-                    {{--<li class="{{$controllerMethod=='blog' ? 'active':''}}"><a--}}
-                    {{--href="{{action('Presentation\BlogController@index',$domain)}}">{{trans('presentation.menu.blog')}}</a>--}}
-                    {{--</li>--}}
-                    {{--<li class="{{$controllerMethod=='support' ? 'active':''}}"><a--}}
-                    {{--href="{{action('Presentation\PresentationController@tutorials',$domain)}}">{{trans('presentation.menu.support')}}</a>--}}
-                    {{--</li>--}}
-                    {{--<li class="{{$controllerMethod=='support' ? 'active':''}}"><a--}}
-                    {{--href="{{action('Presentation\PresentationController@termsconditions',$domain)}}">{{trans('presentation.menu.tac')}}</a>--}}
-                    {{--</li>--}}
-                </ul>
                 <p>{!! trans('presentation.partials.footer.company') !!}</p>
             </div>
         </div>
@@ -264,6 +240,8 @@
 
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/bootstrap.js')}}"></script>
+<script src="{{asset('js/select-categories.js')}}"></script>
+<script src="{{asset('js/wow.js')}}"></script>
 <script>
 	(function ($) {
 		$(window).scroll(function () {
@@ -274,15 +252,11 @@
 			else {
 				$('.navbar').removeClass('nav-bg');
 			}
-			;
 		});
 
 		$(".navbar-toggle").on("click", function () {
 			$(this).toggleClass("active");
 		});
-
-
-		$('.parallax-window').parallax();
 
 		$(".feature-item").on("click", function () {
 			$(".feature-item").removeClass('active')
@@ -294,70 +268,11 @@
 			$('.animation-item[data-animation="' + animation + '"]').addClass('active');
 		});
 	})(jQuery);
-</script>
-{{--<script src="{{asset('js/masonry.pkgd.min.js')}}"></script>--}}
-{{--<script>--}}
-{{--$('.template-block').mouseenter(function () {--}}
-{{--$('.template-block').removeClass('active');--}}
-{{--$(this).addClass('active');--}}
-{{--});--}}
 
-{{--$('.template-block').mouseleave(function () {--}}
-{{--$('.template-block').removeClass('active');--}}
-{{--});--}}
-
-{{--$(document).on('click', '.link-modal', function (e) {--}}
-{{--e.preventDefault();--}}
-{{--e.stopPropagation();--}}
-
-{{--console.log('klik na link-modal');--}}
-
-{{--$link = $(e.target).closest('a');--}}
-
-{{--$.ajax({--}}
-{{--url: $link.attr('href')--}}
-{{--}).done(function (data) {--}}
-{{--var $modal = $(data);--}}
-
-{{--$('body').append($modal);--}}
-{{--$modal.modal();--}}
-
-{{--$modal.on('hidden.bs.modal', function (e) {--}}
-{{--$modal.remove();--}}
-{{--$('.modal-backdrop').remove();--}}
-{{--})--}}
-{{--}).error(function () {--}}
-
-{{--});--}}
-{{--})--}}
-
-
-{{--</script>--}}
-{{--<script>--}}
-
-{{--var $grid = $('.grid').masonry({--}}
-{{--// set itemSelector so .grid-sizer is not used in layout--}}
-{{--itemSelector: '.grid-item',--}}
-{{--// use element for option--}}
-{{--columnWidth: '.grid-sizer',--}}
-{{--percentPosition: true--}}
-{{--})--}}
-
-
-{{--// layout Masonry after each image loads--}}
-{{--$grid.imagesLoaded().progress(function () {--}}
-{{--$grid.masonry('layout');--}}
-{{--});--}}
-{{--</script>--}}
-
-<script src="{{asset('js/select-categories.js')}}"></script>
-<script>
 	$('select').select2({
 		tags: true
 	});
-</script>
-<script src="{{asset('js/wow.js')}}"></script>
-<script>
+
 	new WOW().init();
 </script>
 </body>

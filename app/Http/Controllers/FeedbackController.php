@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\Registration;
 use Facades\App\Services\BoxService;
 use Facades\App\Services\FeedbackService;
 use Facades\App\Services\RatingService;
@@ -19,16 +20,7 @@ class FeedbackController extends Controller
      */
     public function index($code)
     {
-        $box = null;
-        /*$box = BoxService::getByCode($code);
 
-        if ($box == null) {
-            flash()->error(trans('flash.box.not-found'));
-
-            return redirect()->action('HomeController@index');
-        }
-        */
-        return view('public.feedback.index', compact(['box']));
     }
 
     /**
@@ -36,9 +28,19 @@ class FeedbackController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($code)
     {
-        //
+        $box = null;
+
+        $box = BoxService::getByCode($code);
+
+        if ($box == null) {
+            flash()->error(trans('flash.box.not-found'));
+
+            return redirect()->action('HomeController@index');
+        }
+
+        return view('public.feedback.index', compact(['box']));
     }
 
     /**
@@ -48,7 +50,7 @@ class FeedbackController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($boxCode, Request $request)
     {
         $box = BoxService::getByCode($boxCode);
 

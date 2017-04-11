@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'banner-heading'     => 'Rate events with TellMe Box!',
+    'banner-heading'     => 'Rate services with TellMe Box!',
     'banner-subheading'  => 'The simple way to get feedback.',
     'banner-btn'         => 'Create new TellMe Box!',
     'banner-search-text' => 'Insert code',
@@ -27,7 +27,9 @@ return [
 
     'menu' => [
         'admin'  => 'My boxes',
-        'logout' => 'Log out'
+        'logout' => 'Log out',
+        'login' => 'Log in',
+        'register' => 'Registration'
     ]
 
 ];

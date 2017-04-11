@@ -137,4 +137,8 @@ class WizardController extends Controller
 
         \Session::forget(['general', 'categories', 'emails']);
     }
+
+    public function emails(){
+        return view('wizard.emails');
+    }
 }

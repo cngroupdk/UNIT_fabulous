@@ -18,18 +18,11 @@ Route::get('bootstrap', function () {
     return view('bootstrap');
 });
 
+Route::get('/logout', 'Auth\LoginController@logout');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-
-Route::get('/wizard','WizardController@showGeneral');
-Route::post('/wizard/general','WizardController@storeGeneral');
-Route::get('/wizard/categories','WizardController@showCategories');
-Route::post('/wizard/categories','WizardController@storeCategories');
-Route::get('/wizard/emails','WizardController@showEmails');
-Route::post('/wizard/emails','WizardController@storeEmails');
-Route::get('/wizard/preview','WizardController@showPreview');
-Route::get('/wizard/create','WizardController@create');
 
 Route::post('/home', 'HomeController@search');
 
@@ -40,5 +33,14 @@ Route::post('/{code}', 'FeedbackController@store');
 
 
 Route::group(['middleware' => ['auth']], function () {
+Route::get('/wizard','WizardController@showGeneral');
+Route::post('/wizard/general','WizardController@storeGeneral');
+Route::get('/wizard/categories','WizardController@showCategories');
+Route::post('/wizard/categories','WizardController@storeCategories');
+Route::get('/wizard/emails','WizardController@showEmails');
+Route::post('/wizard/emails','WizardController@storeEmails');
+Route::get('/wizard/preview','WizardController@showPreview');
+
+Route::get('/wizard/create','WizardController@create');
 
 });

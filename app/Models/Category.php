@@ -50,7 +50,7 @@ class Category extends Model
 
     public function boxes()
     {
-        return $this->belongsToMany(Box::class, 'boxes_boxes_categories', 'box_id');
+        return $this->belongsToMany(Box::class, 'boxes_boxes_categories');
     }
 
     protected static function boot()
