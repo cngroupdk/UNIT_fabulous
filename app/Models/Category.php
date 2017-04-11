@@ -16,14 +16,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * App\Models\Category
  *
- * @property int $id
- * @property int $user_id
- * @property string $name
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
- * @property \Carbon\Carbon $deleted_at
+ * @property int                                                             $id
+ * @property int                                                             $user_id
+ * @property string                                                          $name
+ * @property \Carbon\Carbon                                                  $created_at
+ * @property \Carbon\Carbon                                                  $updated_at
+ * @property \Carbon\Carbon                                                  $deleted_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Box[] $boxes
- * @property-read \App\Models\User $user
+ * @property-read \App\Models\User                                           $user
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Category whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Category whereDeletedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Category whereId($value)

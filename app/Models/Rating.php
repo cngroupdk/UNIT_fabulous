@@ -16,13 +16,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * App\Models\Rating
  *
- * @property int $id
- * @property int $feedback_id
- * @property int $category_id
- * @property int $rating
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
- * @property \Carbon\Carbon $deleted_at
+ * @property int                       $id
+ * @property int                       $feedback_id
+ * @property int                       $category_id
+ * @property int                       $rating
+ * @property \Carbon\Carbon            $created_at
+ * @property \Carbon\Carbon            $updated_at
+ * @property \Carbon\Carbon            $deleted_at
  * @property-read \App\Models\Category $category
  * @property-read \App\Models\Feedback $feedback
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Rating whereCategoryId($value)

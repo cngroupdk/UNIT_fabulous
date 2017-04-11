@@ -4,8 +4,6 @@ namespace App\Listeners;
 
 use App\Events\MailEvent;
 use App\Notifications\Email;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class MailEventListener
 {
@@ -22,7 +20,8 @@ class MailEventListener
     /**
      * Handle the event.
      *
-     * @param  MailEvent  $event
+     * @param  MailEvent $event
+     *
      * @return void
      */
     public function handle(MailEvent $event)

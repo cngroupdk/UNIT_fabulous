@@ -15,18 +15,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * App\Models\Feedback
  *
- * @property int $id
- * @property int $user_id
- * @property int $box_id
- * @property bool $favorite
- * @property string $comment
- * @property string $admin_comment
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
- * @property \Carbon\Carbon $deleted_at
- * @property-read \App\Models\Box $box
+ * @property int                                                                $id
+ * @property int                                                                $user_id
+ * @property int                                                                $box_id
+ * @property bool                                                               $favorite
+ * @property string                                                             $comment
+ * @property string                                                             $admin_comment
+ * @property \Carbon\Carbon                                                     $created_at
+ * @property \Carbon\Carbon                                                     $updated_at
+ * @property \Carbon\Carbon                                                     $deleted_at
+ * @property-read \App\Models\Box                                               $box
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Rating[] $ratings
- * @property-read \App\Models\User $user
+ * @property-read \App\Models\User                                              $user
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Feedback whereAdminComment($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Feedback whereBoxId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Feedback whereComment($value)
