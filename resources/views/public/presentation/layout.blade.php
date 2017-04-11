@@ -25,8 +25,8 @@
     <style>
         .content {
             padding-top: 80px;
-            background: #f5f5f5;
-            padding-bottom: 80px;
+            background: #5e5e5e;
+            padding-bottom: 20px;
         }
 
         ul.wizard-steps {
@@ -60,7 +60,7 @@
             transition: all .2s;
         }
 
-        .wizard-wrapper {
+        .wizard-wrapper, .box-wrapper {
             min-height: 400px;
             height: auto;
 
@@ -128,6 +128,47 @@
         .tag {
             padding: 2px 3px;
         }
+
+        .rating{
+            opacity: .4;
+        }
+
+        .rating.active{
+            opacity: 1;
+        }
+
+
+        .category-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .category-list li {
+            position: relative;
+            border-bottom: 1px solid #ededed;
+        }
+
+        .category-list li:last-of-type{
+            border-bottom:none;
+        }
+        .category-list li label {
+            font-size:24px;
+            white-space: pre-line;
+            word-break: break-all;
+            padding: 15px 60px 15px 15px;
+            display: inline-block;
+            line-height: 1.2;
+            font-weight: 200;
+            transition: color 0.4s;
+        }
+
+        .box-wrapper .form-group{
+            border-top: 1px solid #ededed;
+            padding: 10px 0;
+        }
+
+
     </style>
 </head>
 <body>
@@ -148,76 +189,7 @@
     <div class="site-spinner"></div>
 </section>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">
-                tellMe Box!
-            </a>
-        </div>
-
-    <?php $controllerMethod = str_replace('App\\Http\\Controllers\\', '', substr(Route::currentRouteAction(), (strpos(Route::currentRouteAction(), '@') + 1))); ?>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                @yield('navbar-left')
-                <li class="wow fadeInDown" data-wow-delay="0s">
-                    <a href="#features-grid">{{trans('menu.features')}}</a>
-                </li>
-                <li class="wow fadeInDown" data-wow-delay=".2s">
-                    <a href="#">{{trans('menu.pricing')}}</a>
-                </li>
-                <li class="wow fadeInDown" data-wow-delay=".2s">
-                    <a href="#">{{trans('menu.testimonials')}}</a>
-                </li>
-
-                <li class="wow fadeInDown" data-wow-delay=".2s">
-                    <a href="#">{{trans('menu.contact')}}</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-
-                @if(Auth::check())
-                    <li class="wow fadeInDown" data-wow-delay=".8s">
-                        <a href="{{action('BoxController@index')}}">{{trans('presentation.menu.admin')}}</a>
-                    </li>
-                    <li class="wow fadeInDown" data-wow-delay=".8s">
-                        <a href="{{action('Auth\LoginController@logout')}}">{{trans('presentation.menu.logout')}}</a>
-                    </li>
-
-                @else
-                    <li class="wow fadeInDown" data-wow-delay=".8s">
-                        <a href="{{ action('Auth\LoginController@showLoginForm') }}">{{trans('presentation.menu.login')}}</a>
-                    </li>
-                    <li class="wow fadeInDown" data-wow-delay=".8s">
-                        <a href="{{ action('Auth\RegisterController@showRegistrationForm') }}">{{trans('presentation.menu.register')}}</a>
-                    </li>
-                @endif
-
-
-                <li class="dropdown wow fadeInDown" data-wow-delay=".8s">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        <span class="flag-icon flag-icon-{{Session::get('lang') =='en' ? 'gb':Session::get('lang')}}"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{action('HomeController@changeLang','sk')}}"><span class="flag-icon flag-icon-sk"></span></a></li>
-                        <li><a href="{{action('HomeController@changeLang','cz')}}"><span class="flag-icon flag-icon-cz"></span></a></li>
-                        <li><a href="{{action('HomeController@changeLang','en')}}"><span class="flag-icon flag-icon-gb"></span></a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
-
+@yield('navbar')
 
 @yield('banner')
 
@@ -339,6 +311,19 @@
 <script src="{{asset('js/wow.js')}}"></script>
 <script>
 	new WOW().init();
+</script>
+
+<script>
+    $('.rating').click(function(){
+        $(this).siblings('.rating').removeClass('active');
+        $(this).addClass('active');
+
+        var value = $(this).prevAll('.rating').length - 1;
+        $(this).closest('li').find('inpu').val(value);
+
+        console.log(value);
+
+    })
 </script>
 </body>
 </html>

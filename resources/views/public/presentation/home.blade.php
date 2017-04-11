@@ -1,5 +1,9 @@
 @extends('public.presentation.layout')
 
+@section('navbar')
+    @include('public.presentation.navbar')
+@endsection
+
 @section('banner')
     <div class="banner parallax-window" data-speed=".3" data-parallax="scroll"
          data-image-src="{{asset('img/presentation/bg1.jpg')}}">
