@@ -11,6 +11,8 @@
     <link href="{{asset('css/presentation.css')}}" rel="stylesheet">
     <link href="{{asset('css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('css/select2.css')}}" rel="stylesheet">
+    <link href="{{asset('css/bootstrap-tagsinput.css')}}" rel="stylesheet">
+
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -56,8 +58,11 @@
             transition: all .2s;
         }
 
-        .wizard-wrapper {
-            height: 400px;
+
+        .wizard-wrapper{
+            min-height: 400px;
+            height: auto;
+
             padding: 50px;
             background: #fff;
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
@@ -74,11 +79,7 @@
             vertical-align: middle;
         }
 
-<<<<<<< HEAD
         .tags{
-=======
-        .wizard-categories {
->>>>>>> 778f4636cb0fe0782c9066be5fe768015c89d2b5
             margin: 0;
             padding: 0;
             list-style: none;
@@ -100,13 +101,9 @@
             transition: color 0.4s;
         }
 
-<<<<<<< HEAD
 
 
         .tags li .select2-selection__choice__remove {
-=======
-        .wizard-categories li .destroy {
->>>>>>> 778f4636cb0fe0782c9066be5fe768015c89d2b5
             display: none;
             position: absolute;
             top: 0;
@@ -125,13 +122,13 @@
             content: '×';
         }
 
-<<<<<<< HEAD
 
         .tags li:hover .select2-selection__choice__remove {
-=======
-        .wizard-categories li:hover .destroy {
->>>>>>> 778f4636cb0fe0782c9066be5fe768015c89d2b5
             display: block;
+        }
+
+        .tag{
+            padding: 2px 3px;
         }
     </style>
 </head>
@@ -356,6 +353,16 @@
         tags: true
     });
 </script>
+
+
+<script src="{{asset('js/bootstrap-tagsinput.js')}}"></script>
+<script>
+    $('.tt-input').tagsinput();
+</script>
+
+$("input").tagsinput('items')
+
+
 <script src="{{asset('js/wow.js')}}"></script>
 <script>
 	new WOW().init();

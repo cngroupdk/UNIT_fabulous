@@ -176,7 +176,7 @@
 .select2-container--default .select2-selection--multiple {
     background-color: white;
     border: 1px solid #aaa;
-    border-radius: 4px;
+    border-radius: 0px;
     cursor: text; }
 .select2-container--default .select2-selection--multiple .select2-selection__rendered {
     box-sizing: border-box;
