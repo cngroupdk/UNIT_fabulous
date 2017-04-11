@@ -7,7 +7,12 @@
  */
 
 return [
-    'box' => [
+    'box'  => [
         'not-found' => 'Box not found.'
+    ],
+    'auth' => [
+        'register' => [
+            'success' => 'You have been successfully registred.'
+        ]
     ]
 ];

@@ -18,6 +18,8 @@ Route::get('bootstrap', function () {
     return view('bootstrap');
 });
 
+Route::get('/logout', 'Auth\LoginController@logout');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

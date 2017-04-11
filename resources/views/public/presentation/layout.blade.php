@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index, follow">
-    <meta name="author" content="E-zone Technologies, s.r.o.">
+    <meta name="author" content="">
 
     <title>{{trans('presentation.title')}}</title>
 
@@ -235,6 +235,8 @@
 @yield('banner')
 
 <div class="content">
+
+    @include('public.flashes.show')
 
     @yield('content')
 
