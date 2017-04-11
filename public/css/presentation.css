@@ -9340,6 +9340,27 @@ body {
   color: #fff;
   line-height: 30px;
 }
+.banner .banner-content .banner-text .banner-form-control {
+  border-radius: 3px;
+  padding: 42px 50px;
+  margin-top: 30px;
+  font-size: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
+.banner .banner-content .banner-text .banner-form-control.form-control-banner-more {
+  background: none;
+  color: #fff;
+  border: 2px solid #fff;
+}
+.banner .banner-content .banner-text .banner-form-control.form-control-banner-more:hover {
+  background: #fff;
+  color: #000;
+  border: 2px solid #fff;
+}
 .banner .banner-content .banner-text .btn {
   border-radius: 3px;
   padding: 25px 50px;
