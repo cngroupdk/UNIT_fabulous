@@ -24,9 +24,7 @@
     <![endif]-->
 
     <style>
-        .content{
-            margin-top: 80px;
-        }
+
     </style>
 </head>
 <body>
@@ -75,114 +73,9 @@
 <script src="{{asset('js/bootstrap.js')}}"></script>
 <script src="{{asset('js/select-categories.js')}}"></script>
 <script src="{{asset('js/wow.js')}}"></script>
-<script>
-	(function ($) {
-		$(window).scroll(function () {
-
-			if ($(window).scrollTop() > 50) {
-				$('.navbar').addClass('nav-bg');
-			}
-			else {
-				$('.navbar').removeClass('nav-bg');
-			}
-		});
-
-		$(".navbar-toggle").on("click", function () {
-			$(this).toggleClass("active");
-		});
-
-		$(".feature-item").on("click", function () {
-			$(".feature-item").removeClass('active')
-			$(this).addClass("active");
-
-			var animation = $(this).data('animation');
-
-			$(".animation-item").removeClass('active');
-			$('.animation-item[data-animation="' + animation + '"]').addClass('active');
-		});
-	})(jQuery);
-
-
-	$('select').select2({
-		tags: true
-	});
-
-
-{{--$.ajax({--}}
-{{--url: $link.attr('href')--}}
-{{--}).done(function (data) {--}}
-{{--var $modal = $(data);--}}
-
-{{--$('body').append($modal);--}}
-{{--$modal.modal();--}}
-
-{{--$modal.on('hidden.bs.modal', function (e) {--}}
-{{--$modal.remove();--}}
-{{--$('.modal-backdrop').remove();--}}
-{{--})--}}
-{{--}).error(function () {--}}
-
-{{--});--}}
-{{--})--}}
-
-
-{{--</script>--}}
-{{--<script>--}}
-
-{{--var $grid = $('.grid').masonry({--}}
-{{--// set itemSelector so .grid-sizer is not used in layout--}}
-{{--itemSelector: '.grid-item',--}}
-{{--// use element for option--}}
-{{--columnWidth: '.grid-sizer',--}}
-{{--percentPosition: true--}}
-{{--})--}}
-
-
-	var docHeight = $(window).height();
-	var footerHeight = $('footer').outerHeight();
-	var footerTop = $('footer').position().top + footerHeight;
-
-
-	if (footerTop < docHeight) {
-		$('footer').css('margin-top', (docHeight - footerTop) + 'px');
-	}
-
-{{--// layout Masonry after each image loads--}}
-{{--$grid.imagesLoaded().progress(function () {--}}
-{{--$grid.masonry('layout');--}}
-{{--});--}}
-</script>
-
-<script src="{{asset('js/select-categories.js')}}"></script>
-<script>
-    $('select').select2({
-        tags: true
-    });
-</script>
-
-
 <script src="{{asset('js/bootstrap-tagsinput.js')}}"></script>
-<script>
-	$('select').select2({
-		tags: true
-	});
-</script>
 <script src="{{asset('js/wow.js')}}"></script>
-<script>
-	new WOW().init();
-</script>
-
-<script>
-    $('.rating').click(function(){
-        $(this).siblings('.rating').removeClass('active');
-        $(this).addClass('active');
-
-        var value = $(this).prevAll('.rating').length - 1;
-        $(this).closest('li').find('inpu').val(value);
-
-        console.log(value);
-
-    })
-</script>
+<script src="{{asset('js/select-categories.js')}}"></script>
+<script src="{{asset('js/script.js')}}"></script>
 </body>
 </html>

@@ -20,5 +20,10 @@ return [
 
     'message' => [
         'success' => 'Feedback successfully created.'
+    ],
+
+    'form' => [
+        'comment' => 'Tell me more...',
+        'email' => 'Your email (optional)'
     ]
 ];

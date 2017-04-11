@@ -1,5 +1,9 @@
 @extends('public.presentation.layout')
 
+@section('navbar')
+    @include('public.presentation.navbar')
+@endsection
+
 @section('content')
     <form action="{{action('FeedbackController@store',$box->code)}}" method="POST">
         {!! csrf_field() !!}

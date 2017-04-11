@@ -5,11 +5,11 @@
     @include('public.presentation.navbar')
 @endsection
 
-
 @section('navbar-left')
     <li class="wow fadeInDown" data-wow-delay="0s">
         <a href="#features">{{trans('menu.features')}}</a>
     </li>
+
     <li class="wow fadeInDown" data-wow-delay=".2s">
         <a href="#testimonials">{{trans('menu.testimonials')}}</a>
     </li>
@@ -17,7 +17,8 @@
     <li class="wow fadeInDown" data-wow-delay=".2s">
         <a href="#contact">{{trans('menu.contact')}}</a>
     </li>
-@stop
+@endsection
+
 
 @section('banner')
     <div class="banner parallax-window" data-speed=".3" data-parallax="scroll"
@@ -67,7 +68,6 @@
             </div>
         </div>
     </div>
-@endsection
 
 
     <section id="features">
@@ -87,14 +87,14 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-xs-12">
-                    <img src="{{asset('img/presentation/grid-avatar.jpg')}}" class="img-responsive wow fadeInRight" data-wow-offset="150" data-wow-delay="1s"
+                    <img src="{{asset('img/demo.png')}}" style="margin: 20px 0" class="img-responsive wow fadeInRight" data-wow-offset="150" data-wow-delay="1s"
                          alt="{{trans('presentation.features.grid.alt')}}">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="testimonials" class="homepage-section-b">
+    <section id="testimonials">
 
         <div class="container ">
             <h2>What do our users say</h2>

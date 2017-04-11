@@ -10425,6 +10425,22 @@ ul.wizard-steps li a .wizard-no {
   border-top: 1px solid #ededed;
   padding: 10px 0;
 }
+.content {
+  margin-top: 80px;
+}
+#testimonials {
+  padding: 20px 0;
+  background: #f5f5f5;
+}
+#features {
+  color: #fff;
+}
+.banner {
+  background-image: url('/img/presentation/bg1.jpg');
+}
+.banner-form-control {
+  color: #fff;
+}
 @media (max-width: 768px) {
   .navbar-default {
     background: rgba(255, 255, 255, 0.99);

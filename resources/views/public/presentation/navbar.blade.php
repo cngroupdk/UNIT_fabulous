@@ -19,9 +19,6 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 @yield('navbar-left')
-                <li class="wow fadeInDown" data-wow-delay=".2s">
-                    <a href="#testimonials">{{trans('menu.testimonials')}}</a>
-                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
 
