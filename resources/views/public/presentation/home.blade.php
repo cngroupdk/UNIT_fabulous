@@ -14,9 +14,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="input-group">
-                                <input type="text" class="form-control form-group-lg" placeholder="Search for...">
+                                <input type="text" class="form-control banner-form-control form-control-banner-more" placeholder="{{trans('presentation.banner-search-text')}}">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-secondary" type="button">Go!</button>
+                                    <button class="btn btn-secondary btn-banner-more" type="button">{{trans('presentation.banner-search-btn')}}</button>
                                   </span>
                             </div>
                         </div>

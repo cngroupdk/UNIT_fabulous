@@ -16,6 +16,8 @@ return [
     'banner-heading' => 'Rate events with TellMe Box!',
     'banner-subheading' => 'The simple way to get feedback.',
     'banner-btn' => 'Create new TellMe Box!',
+    'banner-search-text' => 'Insert code',
+    'banner-search-btn' => 'Rate',
 
     'features-grid-heading' => 'Get the feedback from your customers.',
     'features-grid-text2' => 'Let your clients rate your service and get the feedback. No downloads required',
