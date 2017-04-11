@@ -20,6 +20,16 @@ Route::get('bootstrap', function () {
 
 Auth::routes();
 
+Route::get('/home', 'HomeController@index');
+
+//Route::get('/wizard','WizardController@showGeneral');
+//Route::post('/wizard/general','WizardController@storeGeneral');
+//Route::get('/wizard/categories','WizardController@showCategories');
+//Route::post('/wizard/categories','WizardController@storeCategories');
+//Route::get('/wizard/emails','WizardController@showEmails');
+//Route::post('/wizard/emails','WizardController@storeEmails');
+//Route::get('/wizard/preview','WizardController@showPreview');
+//Route::post('/wizard','WizardController@create');
 
 Route::get('/wizard', 'WizardController@general');
 //Route::post('/wizard/general','WizardController@general');
@@ -30,8 +40,6 @@ Route::get('/wizard/categories', 'WizardController@categories');
 //Route::get('/wizard/preview','WizardController@preview');
 //Route::get('/wizard','WizardController@create');
 
-
-Route::get('/home', 'HomeController@index');
 Route::post('/home', 'HomeController@search');
 
 
