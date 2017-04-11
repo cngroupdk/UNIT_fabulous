@@ -68,12 +68,20 @@ class RegisterController extends Controller
 
         flash()->success(trans('flash.auth.register.success'));
 
-        return $this->registered($request, $user)
-            ?: redirect($this->redirectPath());
+        if (\Session::exists('forward_to_create')) {
+            return redirect()->action('WizardController@showGeneral');
+        } else {
+            \Session::forget('forward_to_create');
+
+            return $this->registered($request, $user)
+                ?: redirect($this->redirectPath());
+        }
     }
 
     public function showRegistrationForm()
     {
+        \Session::put('forward_to_create', true);
+
         return view('auth.register');
     }
 }

@@ -9,7 +9,7 @@
 return [
     'box'  => [
         'not-found' => 'Box not found.',
-        'created' => 'New box created.'
+        'created'   => 'New box created.'
     ],
     'auth' => [
         'register' => [
