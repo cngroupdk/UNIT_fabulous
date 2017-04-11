@@ -15,33 +15,33 @@ return [
     'subject_prefix' => 'TellMeBox:',
 
     'password' => [
-        'title'   => 'Zabudnuté heslo',
+        'title'   => 'Forgot password',
         'message' => [
-            'action'       => 'Zmena hesla',
-            'introduction' => 'Dostali ste tento e-mail, pretože evidujeme žiadosť o resetovanie hesla pre váš účet.',
-            'thanks'       => 'Ak ste si nevyžiadali resetovanie hesla, nie je nutná žiadna ďalšia akcia.'
+            'action'       => 'Change password',
+            'introduction' => 'This email was generated for purpose of reset password.',
+            'thanks'       => 'If you did not generate reset password request, please ignore this mail.'
         ]
     ],
 
     'welcome_email' => [
-        'title'   => 'Registrácia prebehla úspešne',
+        'title'   => 'Registration successful',
         'message' => [
-            'greetings'    => 'Dobrý deň :name',
-            'action'       => 'Prihláste sa',
-            'introduction' => 'Registrácia Vašeho nového účtu v systéme Klikom.sk prebehla úspešne.',
-            'thanks'       => 'Ďakujeme za Vašu registráciu.',
+            'greetings'    => 'Hello :name',
+            'action'       => 'Log in',
+            'introduction' => 'Your registration in TellMe system was successful.',
+            'thanks'       => 'Thank you.',
         ]
     ],
 
     'valid_email' => [
-        'title'   => 'Registrácia prebehla úspešne',
+        'title'   => 'Registration successful',
         'message' => [
-            '1' => 'Dobrý deň :name,<br><br>Registrácia v systéme',
-            '2' => 'prebehla úspešne. Kliknutím na nasledujúci odkaz aktivujete vaše konto:<br><br>',
-            '3' => 'Aktivovať moje konto'
+            '1' => 'Hello :name,<br><br>Registration',
+            '2' => 'was successful. Click here to activate your account:<br><br>',
+            '3' => 'Active account'
         ]
     ],
 
-    'greetings' => 'Dobrý deň',
-    'regards'   => "S pozdravom",
+    'greetings' => 'Welcome',
+    'regards'   => "With kind regards,",
 ];
