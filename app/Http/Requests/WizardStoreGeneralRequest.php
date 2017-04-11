@@ -24,6 +24,7 @@ class WizardStoreGeneralRequest extends FormRequest
     public function rules()
     {
         return [
+
             'name'        => 'required|string|max:255|unique:name,boxes_boxes',
             'description' => 'string|max:255'
         ];
