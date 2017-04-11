@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Facades\App\Services\FeedbackService;
 use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
@@ -11,9 +12,17 @@ class FeedbackController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($code)
     {
-        //
+        $box = BoxService::getByCode($code);
+
+        if ($box == null) {
+            flash()->error(trans('flash.box.not-found'));
+
+            return redirect()->action('HomeController@index');
+        }
+
+        return view('public.feedback.index', compact(['box']));
     }
 
     /**
@@ -29,7 +38,8 @@ class FeedbackController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -40,7 +50,8 @@ class FeedbackController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -51,7 +62,8 @@ class FeedbackController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -62,8 +74,9 @@ class FeedbackController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -74,7 +87,8 @@ class FeedbackController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
