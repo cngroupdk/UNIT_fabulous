@@ -54,6 +54,10 @@ class Box extends Model
         'private'
     ];
 
+    protected $casts = [
+        'private' => 'boolean'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
