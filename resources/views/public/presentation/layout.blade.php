@@ -11,12 +11,7 @@
     <link href="{{asset('css/presentation.css')}}" rel="stylesheet">
     <link href="{{asset('css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('css/select2.css')}}" rel="stylesheet">
-<<<<<<< HEAD
-    <link href="{{asset('css/bootstrap-tagsinput.css')}}" rel="stylesheet">
-
-=======
     <link href="{{asset('css/flag-icon.min.css')}}" rel="stylesheet">
->>>>>>> 6d76248506635fa31857856423477c1974143ea9
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -83,11 +78,7 @@
             vertical-align: middle;
         }
 
-<<<<<<< HEAD
-        .tags{
-=======
         .tags {
->>>>>>> 6d76248506635fa31857856423477c1974143ea9
             margin: 0;
             padding: 0;
             list-style: none;
@@ -109,11 +100,6 @@
             transition: color 0.4s;
         }
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 6d76248506635fa31857856423477c1974143ea9
         .tags li .select2-selection__choice__remove {
             display: none;
             position: absolute;
@@ -133,10 +119,6 @@
             content: '×';
         }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6d76248506635fa31857856423477c1974143ea9
         .tags li:hover .select2-selection__choice__remove {
             display: block;
         }
@@ -291,7 +273,7 @@
 		tags: true
 	});
 
-<<<<<<< HEAD
+
 {{--$.ajax({--}}
 {{--url: $link.attr('href')--}}
 {{--}).done(function (data) {--}}
@@ -326,7 +308,7 @@
 {{--$grid.imagesLoaded().progress(function () {--}}
 {{--$grid.masonry('layout');--}}
 {{--});--}}
-{{--</script>--}}
+</script>
 
 <script src="{{asset('js/select-categories.js')}}"></script>
 <script>
@@ -346,8 +328,7 @@ $("input").tagsinput('items')
 
 <script src="{{asset('js/wow.js')}}"></script>
 <script>
-=======
->>>>>>> 6d76248506635fa31857856423477c1974143ea9
+
 	new WOW().init();
 </script>
 </body>

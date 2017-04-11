@@ -9,12 +9,16 @@ use App\Http\Requests\WizardStoreEmailsRequest;
 use App\Http\Requests\WizardStoreGeneralRequest;
 use Facades\App\Services\BoxService;
 use Facades\App\Services\CategoryService;
+use Illuminate\Http\Request;
 
 class WizardController extends Controller
 {
     public function showGeneral()
     {
+        \Session::forget(['general', 'categories', 'emails']);
+
         $generalData = \Session::get('general');
+
 
         return view('wizard.general', compact(['generalData']));
     }
@@ -23,11 +27,13 @@ class WizardController extends Controller
     {
         $generalData = [
             'name'        => $request->name,
-            'private'     => $request->private,
+            'private'     => $request->has('private'),
             'description' => $request->description
         ];
 
         \Session::put('general', $generalData);
+        return redirect()->action('WizardController@showCategories');
+
     }
 
     public function showCategories()
@@ -39,6 +45,7 @@ class WizardController extends Controller
 
         $categoriesData = \Session::get('categories');
 
+
         return view('wizard.categories', compact(['categoriesData']));
     }
 
@@ -49,6 +56,8 @@ class WizardController extends Controller
         ];
 
         \Session::put('categories', $categoriesData);
+
+        return redirect()->action('WizardController@showEmails');
     }
 
     public function showEmails()
@@ -61,17 +70,23 @@ class WizardController extends Controller
             return redirect()->action('WizardController@showCategories');
         }
 
-        return view('wizard.emails');
+        $emailsData = \Session::get('emails');
+
+
+        return view('wizard.emails', compact(['emailsData']));
     }
 
     public function storeEmails(WizardStoreEmailsRequest $request)
     {
+
         $emailData = [
             'emails' => $request->emails,
-            'text'   => $request->email_text
+            'text'   => $request->text
         ];
 
         \Session::put('emails', $emailData);
+
+        return redirect()->action('WizardController@showPreview');
     }
 
     public function showPreview()
@@ -91,6 +106,12 @@ class WizardController extends Controller
         $generalData = \Session::get('general');
         $categoriesData = \Session::get('categories');
         $emailData = \Session::get('emails');
+
+        return [
+            'general' => $generalData,
+            'categories' => $categoriesData,
+            'emails' => $emailData
+        ];
 
         return view('wizard.preview', compact(['generalData', 'categoriesData', 'emailData']));
     }

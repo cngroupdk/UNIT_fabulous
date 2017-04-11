@@ -11,9 +11,9 @@
                 <h2 class="text-center">Categories</h2>
                 <div class="form-group{{$errors->has('categories') ? ' has-error': ''}}">
                     <label for="wizard-name">Name</label>
-                    <select name="categories" multiple="multiple" style="width:100%">
+                    <select name="categories[]" multiple="multiple" style="width:100%">
                         @if($categoriesData != null)
-                            @foreach($categoriesData->categories as $category)
+                            @foreach($categoriesData['categories'] as $category)
                                 <option selected>{{$category}}</option>
                             @endforeach
                         @endif

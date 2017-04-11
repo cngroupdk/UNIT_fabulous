@@ -14,15 +14,15 @@
                 <div class="form-group{{$errors->has('name') ? ' has-error': ''}}">
                     <label for="wizard-name">Name</label>
                     <input id="wizard-name" name="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="tellMeBox name"
-                           value="{{$generalData != null ? $generalData->name : ''}}">
-                    @if($errors->has('name'))
-                        <span class="help-block">{{$errors->first('name')}}</span>
-                    @endif
+                           value="{{$generalData == null ? '' : $generalData['name']}}">
+                        @if($errors->has('name'))
+                            <span class="help-block">{{$errors->first('name')}}</span>
+                        @endif
                 </div>
                 <div class="form-group{{$errors->has('description') ? ' has-error': ''}}">
                     <label for="wizard-description">Name</label>
                     <textarea id="wizard-description" name="description" class="form-control" rows="3">
-                        {{$generalData != null ? $generalData->description : ''}}
+                        {{$generalData != null ? $generalData['description'] : ''}}
                     </textarea>
 
                     @if($errors->has('description'))
@@ -33,7 +33,7 @@
                 <div class="checkbox">
                     <label>
                         <input name="private"
-                               type="checkbox" {{$generalData != null && $generalData->private ? 'checked' : ''}}>
+                               type="checkbox" {{$generalData != null && $generalData['private'] ? 'checked' : ''}}>
                         Make this box private!
                     </label>
                 </div>

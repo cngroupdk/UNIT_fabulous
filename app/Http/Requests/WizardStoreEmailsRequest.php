@@ -13,7 +13,7 @@ class WizardStoreEmailsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class WizardStoreEmailsRequest extends FormRequest
     public function rules()
     {
         return [
-            'emails.*' => 'required|email|max:255',
+            'emails.*' => 'string|max:255',
             'text'     => 'string|max:255'
         ];
     }
