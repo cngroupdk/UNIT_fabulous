@@ -16,7 +16,18 @@ return [
     'failed' => 'Prihlsovacie údaje nie su správne.',
     'throttle' => 'Bol presiahnutý maximálny počet pokusov na prihlásenie. Prosím skúste znova o :seconds sekúnd.',
 
+    'login'=>[
+        'email'=>'E-Mailová Adresa',
+        'pass'=>'Heslo',
+        'remember'=>' Zapametať prihlásienie',
+        'login'=>'Prihlásiť',
+    ],
+
     'register'=>[
-        'email'=>''
+        'register'=>'Registrácia',
+        'name'=>'Meno',
+        'email'=>'E-Mailová Adresa',
+        'pass'=>'Heslo',
+        'confirmpass'=>'Potvrdenie Hesla',
     ]
 ];
