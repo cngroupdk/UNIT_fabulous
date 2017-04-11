@@ -20,18 +20,7 @@ class FeedbackController extends Controller
      */
     public function index($code)
     {
-        $box = null;
 
-        /*$box = BoxService::getByCode($code);
-
-        if ($box == null) {
-            flash()->error(trans('flash.box.not-found'));
-
-            return redirect()->action('HomeController@index');
-        }
-        */
-
-        return view('public.feedback.index', compact(['box']));
     }
 
     /**
@@ -39,9 +28,19 @@ class FeedbackController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($code)
     {
-        //
+        $box = null;
+
+        $box = BoxService::getByCode($code);
+
+        if ($box == null) {
+            flash()->error(trans('flash.box.not-found'));
+
+            return redirect()->action('HomeController@index');
+        }
+
+        return view('public.feedback.index', compact(['box']));
     }
 
     /**

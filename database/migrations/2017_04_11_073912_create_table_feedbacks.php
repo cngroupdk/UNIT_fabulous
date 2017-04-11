@@ -17,10 +17,10 @@ class CreateTableFeedbacks extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('box_id');
 
-            $table->boolean('favorite');
+            $table->boolean('favorite')->default(false);
 
-            $table->text('comment');
-            $table->text('admin_comment');
+            $table->text('comment')->nullable();
+            $table->text('admin_comment')->nullable();
 
             $table->nullableTimestamps();
             $table->softDeletes();
