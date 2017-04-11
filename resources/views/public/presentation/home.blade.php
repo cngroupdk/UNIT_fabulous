@@ -6,11 +6,26 @@
         <div class="banner-cover"></div>
         <div class="banner-content">
             <div class="banner-text">
-                <p class="banner-heading wow fadeInDown" data-wow-delay="0s">{{trans('presentation.banner.heading')}}</p>
+                <p class="banner-heading wow fadeInDown" data-wow-delay="0s">{{trans('presentation.banner-heading')}}</p>
 
-                <p class="banner-subheading wow fadeInUp" data-wow-delay=".2s">{{trans('presentation.banner.subheading')}}</p>
+                <p class="banner-subheading wow fadeInUp" data-wow-delay=".2s">{{trans('presentation.banner-subheading')}}</p>
 
-                <a href="#" class="btn btn-banner-more">{{trans('presentation.banner-btn')}}</a>
+                <form class="form-inline">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-group-lg" placeholder="Search for...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-secondary" type="button">Go!</button>
+                                  </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#" class="btn btn-banner-more">{{trans('presentation.banner-btn')}}</a>
+                        </div>
+                    </div>
+                </form>
+
                 {{--<a href="{{action('Builder\DemoController@create')}}"--}}
                    {{--class="btn btn-banner-start wow fadeInLeft" data-wow-delay=".4s">{{trans('presentation.banner.start')}}</a>--}}
                 {{--<a href="#features-grid" class="btn btn-banner-more">{{trans('presentation.banner.more')}}</a>--}}
@@ -19,21 +34,22 @@
     </div>
 @endsection
 
+
 @section('content')
     <section id="features-grid">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-xs-12">
                     <div class="feature-item">
-                        <h2 class="wow fadeInLeft" data-wow-offset="150">{!!trans('presentation.features.grid.heading') !!}</h2>
-                        <ul>{!! trans('presentation.features.grid.text2') !!}
+                        <h2 class="wow fadeInLeft" data-wow-offset="150">{!!trans('presentation.features-grid-heading') !!}</h2>
+                        <ul>{!! trans('presentation.features-grid-text2') !!}
 
                         </ul>
 
                         {{--<a href="{{action('Builder\DemoController@create')}}" class="btn btn-more btn-shadow wow fadeInUp" data-wow-offset="150"--}}
                            {{--data-wow-delay="1s">{{trans('presentation.features.grid.button')}}</a>--}}
                         <a href="#" class="btn btn-nobg wow fadeInUp" data-wow-offset="150"
-                           data-wow-delay="1s">{{trans('presentation.features.grid.button-more')}}</a>
+                           data-wow-delay="1s">{{trans('presentation.features-grid-button-more')}}</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-xs-12">
@@ -49,7 +65,7 @@
             <div class="row">
                 <div class="col-lg-6 col-lg-push-6 col-xs-12">
                     <div class="feature-item">
-                        <h2 class="wow fadeInRight" data-wow-offset="150">{!!trans('presentation.features.menu.heading')!!}</h2>
+                        <h2 class="wow fadeInRight" data-wow-offset="150">{!!trans('presentation.features-menu-heading')!!}</h2>
 
 
 

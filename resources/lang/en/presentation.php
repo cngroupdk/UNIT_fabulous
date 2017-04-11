@@ -13,7 +13,14 @@ return [
     |
     */
 
+    'banner-heading' => 'Rate events with TellMe Box!',
+    'banner-subheading' => 'The simple way to get feedback.',
     'banner-btn' => 'Create new TellMe Box!',
 
+    'features-grid-heading' => 'Get the feedback from your customers.',
+    'features-grid-text2' => 'Let your clients rate your service and get the feedback. No downloads required',
+    'features-grid-button-more' => 'Get started',
+
+    'features-menu-heading' => 'Testimonials',
 
 ];
