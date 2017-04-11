@@ -11,6 +11,8 @@
     <link href="{{asset('css/presentation.css')}}" rel="stylesheet">
     <link href="{{asset('css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('css/select2.css')}}" rel="stylesheet">
+    <link href="{{asset('css/bootstrap-tagsinput.css')}}" rel="stylesheet">
+
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -122,6 +124,10 @@
 
         .tags li:hover .select2-selection__choice__remove {
             display: block;
+        }
+
+        .tag{
+            padding: 2px 3px;
         }
     </style>
 </head>
@@ -345,6 +351,16 @@
         tags: true
     });
 </script>
+
+
+<script src="{{asset('js/bootstrap-tagsinput.js')}}"></script>
+<script>
+    $('.tt-input').tagsinput();
+</script>
+
+$("input").tagsinput('items')
+
+
 <script src="{{asset('js/wow.js')}}"></script>
 <script>
     new WOW().init();

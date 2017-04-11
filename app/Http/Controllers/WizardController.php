@@ -13,4 +13,8 @@ class WizardController extends Controller
     public function categories(){
         return view('wizard.categories');
     }
+
+    public function emails(){
+        return view('wizard.emails');
+    }
 }
