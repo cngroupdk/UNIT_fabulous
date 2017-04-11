@@ -189,6 +189,7 @@
                 @if(Auth::check())
                     <li class="wow fadeInDown" data-wow-delay=".8s">
                         <a href="#">{{trans('presentation.menu.admin')}}</a>
+                        <a href="{{action('Auth\LoginController@logout')}}">{{trans('presentation.menu.logout')}}</a>
                     </li>
 
                 @else
