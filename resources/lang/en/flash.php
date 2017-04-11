@@ -8,6 +8,7 @@
 
 return [
     'box'  => [
+        'created'   => 'Box successfully created!',
         'not-found' => 'Box not found.'
     ],
     'auth' => [
