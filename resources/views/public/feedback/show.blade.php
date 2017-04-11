@@ -1,5 +1,9 @@
 @extends('public.presentation.layout')
 
+@section('navbar')
+    @include('public.presentation.static-navbar')
+@endsection
+
 @section('content')
 
 
