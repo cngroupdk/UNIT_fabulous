@@ -13,14 +13,18 @@ return [
     |
     */
 
-    'title' => 'Results',
-    'email' => 'E-mail address',
-    'text' => 'Comment',
+    'title'    => 'Results',
+    'email'    => 'E-mail address',
+    'text'     => 'Comment',
+    'favorite' => 'Favorite',
 
-<<<<<<< HEAD
-=======
     'message' => [
         'success' => 'Feedback successfully created.'
+    ],
+
+    'form'=>[
+        'comment'=> 'Comment',
+        'email'    => 'E-mail address',
+        'submit'=>'Submit',
     ]
->>>>>>> parent of c4045b5... doplnenie jazyka
 ];

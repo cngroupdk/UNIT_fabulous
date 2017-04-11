@@ -9,6 +9,7 @@
 namespace App\Services;
 
 use App\Models\Feedback;
+use Facades\App\Services\BoxService;
 
 class FeedbackService
 {
@@ -82,5 +83,16 @@ class FeedbackService
         }
 
         return true;
+    }
+
+    public function getFeedbacksForBox($id)
+    {
+        $box = BoxService::getById($id);
+        return $box->feedbacks;
+    }
+
+    public function getById($id)
+    {
+        return Feedback::findOrFail($id);
     }
 }

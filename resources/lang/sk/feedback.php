@@ -16,5 +16,12 @@ return [
     'title' => 'Výsledky',
     'email' => 'E-mailová adresa',
     'text' => 'Komentár',
+    'favorite' => 'Obluben0',
+
+    'form'=>[
+        'comment'=> 'Komentár',
+        'email' => 'E-mailová adresa',
+        'submit'=>'Odoslať',
+    ]
 
 ];

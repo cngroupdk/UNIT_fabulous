@@ -8,6 +8,12 @@
 
 return [
     'box' => [
-        'not-found' => 'Box nie je najdený.'
+        'not-found' => 'Box nie je najdený.',
+        'created' => 'Nový box úspešne vytvorený.'
+    ],
+    'auth' => [
+        'register' => [
+            'success' => 'Boli ste úspešne zaregistrovaní.'
+        ]
     ]
 ];

@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Events\MailEvent;
-use App\Http\Requests\CreateBoxRequest;
 use App\Http\Requests\WizardStoreCategoriesRequest;
 use App\Http\Requests\WizardStoreEmailsRequest;
 use App\Http\Requests\WizardStoreGeneralRequest;
 use Facades\App\Services\BoxService;
 use Facades\App\Services\CategoryService;
+use Illuminate\Http\Request;
 
 class WizardController extends Controller
 {
@@ -23,11 +23,13 @@ class WizardController extends Controller
     {
         $generalData = [
             'name'        => $request->name,
-            'private'     => $request->private,
+            'private'     => $request->has('private'),
             'description' => $request->description
         ];
 
         \Session::put('general', $generalData);
+
+        return redirect()->action('WizardController@showCategories');
     }
 
     public function showCategories()
@@ -48,6 +50,8 @@ class WizardController extends Controller
         ];
 
         \Session::put('categories', $categoriesData);
+
+        return redirect()->action('WizardController@showEmails');
     }
 
     public function showEmails()
@@ -60,17 +64,23 @@ class WizardController extends Controller
             return redirect()->action('WizardController@showCategories');
         }
 
-        return view('wizard.emails');
+        $emailsData = \Session::get('emails');
+
+
+        return view('wizard.emails', compact(['emailsData']));
     }
 
     public function storeEmails(WizardStoreEmailsRequest $request)
     {
         $emailData = [
             'emails' => $request->emails,
-            'text'   => $request->email_text
+            'text'   => $request->text
         ];
 
         \Session::put('emails', $emailData);
+
+//        return redirect()->action('WizardController@showPreview');
+        return redirect()->action('WizardController@create');
     }
 
     public function showPreview()
@@ -94,46 +104,52 @@ class WizardController extends Controller
         return view('wizard.preview', compact(['generalData', 'categoriesData', 'emailData']));
     }
 
-    public function create(CreateBoxRequest $request)
+    public function create()
     {
         // vytvorenie boxu
         $generalData = \Session::get('general');
 
         $box = BoxService::create([
-            'user_id'      => \Auth::user(),
-            'name'         => $generalData->name,
-            'description'  => $generalData->description,
-            'private'      => $generalData->private
+            'user_id'      => \Auth::user()->id,
+            'name'         => $generalData['name'],
+            'description'  => $generalData['description'],
+            'private'      => $generalData['private']
         ]);
 
         // vytvorenie kategorii
         $categoriesData = \Session::get('categories');
 
-        foreach ($categoriesData->categories as $category) {
-            $newCategory = CategoryService::create([
-                'user_id' => \Auth::user(),
-                'name'    => $category
-            ]);
-            $box->categories()->attach($newCategory->id);
+        if (count($categoriesData['categories']) > 0) {
+            foreach ($categoriesData['categories'] as $category) {
+                $newCategory = CategoryService::create([
+                    'user_id' => \Auth::user()->id,
+                    'name'    => $category
+                ]);
+
+                $box->categories()->attach($newCategory->id);
+            }
         }
 
         // odoslanie emailov
         $emailData = \Session::get('emails');
 
         // todo email text
-        foreach ($emailData->emails as $email) {
-            event(new MailEvent(
-                null,
-                trans('emails.subject_prefix') . ' ' . $box->name),
-                trans('emails.box-invitation', ['box_code' => $box->code]),
-                $email
-            );
+        if (! is_null($emailData['emails'])) {
+            foreach ($emailData['emails'] as $email) {
+                event(new MailEvent(
+                    null,
+                    trans('emails.subject_prefix') . ' ' . htmlspecialchars($box->name),
+                    trans('emails.box_invitation', ['box_code' => $box->code]),
+                    $email
+                ));
+            }
         }
 
         \Session::forget(['general', 'categories', 'emails']);
+
+        flash()->success(trans('flash.box.created'));
+        return redirect()->action('BoxController@index');
     }
 
-    public function emails(){
-        return view('wizard.emails');
-    }
+
 }
