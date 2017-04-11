@@ -14,6 +14,8 @@ return [
     */
     'subject_prefix' => 'TellMeBox:',
 
+    'box_invitation' => 'Boli ste pozvaní na ohodnotenie cez TellMeBox. Na stránke ho nájdete po zadaní kódu :box_code',
+
     'password' => [
         'title'   => 'Forgot password',
         'message' => [
@@ -29,6 +31,7 @@ return [
             'greetings'    => 'Hello :name',
             'action'       => 'Log in',
             'introduction' => 'Your registration in TellMe system was successful.',
+            'password'     => 'Your password is: :password',
             'thanks'       => 'Thank you.',
         ]
     ],

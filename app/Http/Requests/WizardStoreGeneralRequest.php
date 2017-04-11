@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateBoxRequest extends FormRequest
+class WizardStoreGeneralRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,9 @@ class CreateBoxRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'        => 'required|string|max:255|unique:name,boxes_boxes',
+            'private'     => 'required|numeric|min:0|max:1',
+            'description' => 'string|max:255'
         ];
     }
 }

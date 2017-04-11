@@ -122,6 +122,8 @@
         </div>
     </section>
 
+
+
     {{--<section id="templates">--}}
     {{--<div class="container">--}}
     {{--<div class="row">--}}
@@ -216,6 +218,37 @@
                 <div class="col-md-12 text-center">
                     {{--<a href="{{action('Builder\DemoController@create')}}" class="btn btn-prices-start">Začněte--}}
                     {{--ihned!</a>--}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="newsletter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <h1>{!! trans('presentation.newsletter.heading') !!}</h1>
+
+                    <p class="content-subheading">{!! trans('presentation.newsletter.subheading') !!}</p>
+
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <form method="post" action="/newsletter">
+                                {!! csrf_field() !!}
+
+                                <div class="input-group">
+                                    <input type="email" class="form-control" name="newsletter-email"
+                                           placeholder="{{ trans('presentation.newsletter.placeholder') }}" required>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default btn-shadow"
+                                                type="submit">{{ trans('presentation.newsletter.button') }}</button>
+                                    </span>
+                                </div><!-- /input-group -->
+                            </form>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

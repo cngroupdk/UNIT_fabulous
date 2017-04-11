@@ -10,12 +10,130 @@
 
     <link href="{{asset('css/presentation.css')}}" rel="stylesheet">
     <link href="{{asset('css/animate.css')}}" rel="stylesheet">
+    <link href="{{asset('css/select2.css')}}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+        .content {
+            padding-top: 80px;
+            background: #f5f5f5;
+            padding-bottom: 80px;
+        }
+
+        ul.wizard-steps {
+            position: relative;
+            list-style: none;
+            padding: 0;
+            margin-bottom: 50px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        ul.wizard-steps li {
+            display: inline-block;
+            margin: 30px 15px 0 15px;
+        }
+
+        ul.wizard-steps li.active a .wizard-no {
+            background: #666;
+            color: #fff;
+        }
+
+        ul.wizard-steps li a .wizard-no {
+            background: rgba(0, 0, 0, 0.05);
+            color: #222;
+            padding: 17px 19px;
+            border-radius: 60px;
+            margin-right: 10px;
+            font-weight: 800;
+            -webkit-transition: all .2s;
+            -o-transition: all .2s;
+            transition: all .2s;
+        }
+
+        .wizard-wrapper {
+            height: 400px;
+            padding: 50px;
+            background: #fff;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .wizard-side {
+            text-align: center;
+            height: 400px;
+            display: table;
+        }
+
+        .wizard-btn-wrapper {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+<<<<<<< HEAD
+        .tags{
+=======
+        .wizard-categories {
+>>>>>>> 778f4636cb0fe0782c9066be5fe768015c89d2b5
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .tags li {
+            position: relative;
+            font-size: 24px;
+            border-bottom: 1px solid #ededed;
+        }
+
+        .tags li label {
+            white-space: pre-line;
+            word-break: break-all;
+            padding: 15px 60px 15px 15px;
+            display: block;
+            line-height: 1.2;
+            font-weight: 200;
+            transition: color 0.4s;
+        }
+
+<<<<<<< HEAD
+
+
+        .tags li .select2-selection__choice__remove {
+=======
+        .wizard-categories li .destroy {
+>>>>>>> 778f4636cb0fe0782c9066be5fe768015c89d2b5
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 10px;
+            bottom: 0;
+            width: 40px;
+            height: 40px;
+            margin: auto 0;
+            font-size: 30px;
+            color: #cc9a9a;
+            margin-bottom: 11px;
+            transition: color 0.2s ease-out;
+        }
+
+        .tags li .select2-selection__choice__remove:after {
+            content: '×';
+        }
+
+<<<<<<< HEAD
+
+        .tags li:hover .select2-selection__choice__remove {
+=======
+        .wizard-categories li:hover .destroy {
+>>>>>>> 778f4636cb0fe0782c9066be5fe768015c89d2b5
+            display: block;
+        }
+    </style>
 </head>
 <body>
 @if($errors->has('newsletter-email'))
@@ -51,8 +169,8 @@
             </a>
         </div>
 
-        <?php $controllerMethod = str_replace('App\\Http\\Controllers\\', '', substr(Route::currentRouteAction(), (strpos(Route::currentRouteAction(), '@') + 1))); ?>
-                <!-- Collect the nav links, forms, and other content for toggling -->
+    <?php $controllerMethod = str_replace('App\\Http\\Controllers\\', '', substr(Route::currentRouteAction(), (strpos(Route::currentRouteAction(), '@') + 1))); ?>
+    <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 @yield('navbar-left')
@@ -72,30 +190,34 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {{--<li class="wow fadeInDown {{$controllerMethod=='index' ? 'active':''}}" data-wow-delay="0s"><a--}}
-                            {{--href="{{action('Presentation\PresentationController@index',$domain)}}">{{trans('presentation.menu.homepage')}}</a>--}}
+                {{--href="{{action('Presentation\PresentationController@index',$domain)}}">{{trans('presentation.menu.homepage')}}</a>--}}
                 {{--</li>--}}
                 {{--<li class="wow fadeInDown {{$controllerMethod=='templates' ? 'active':''}}" data-wow-delay=".2s"><a--}}
-                            {{--href="{{action('Presentation\PresentationController@templates',$domain)}}">{{trans('presentation.menu.templates')}}</a>--}}
+                {{--href="{{action('Presentation\PresentationController@templates',$domain)}}">{{trans('presentation.menu.templates')}}</a>--}}
                 {{--</li>--}}
                 {{--<li class="wow fadeInDown {{$controllerMethod=='prices' ? 'active':''}}" data-wow-delay=".4s"><a--}}
-                            {{--href="{{action('Presentation\PresentationController@prices',$domain)}}">{{trans('presentation.menu.prices')}}</a>--}}
+                {{--href="{{action('Presentation\PresentationController@prices',$domain)}}">{{trans('presentation.menu.prices')}}</a>--}}
                 {{--</li>--}}
                 {{--<li class="wow fadeInDown {{$controllerMethod=='contact' ? 'active':''}}" data-wow-delay=".6s"><a--}}
-                            {{--href="{{action('Presentation\PresentationController@contact',$domain)}}">{{trans('presentation.menu.contact')}}</a>--}}
+                {{--href="{{action('Presentation\PresentationController@contact',$domain)}}">{{trans('presentation.menu.contact')}}</a>--}}
                 {{--</li>--}}
 
                 @if(Auth::check())
                     <li class="wow fadeInDown" data-wow-delay=".8s">
                         <a href="#">{{trans('presentation.menu.admin')}}</a>
+                        <a href="{{action('Auth\LoginController@logout')}}">{{trans('presentation.menu.logout')}}</a>
                     </li>
 
                 @else
                     <li class="wow fadeInDown" data-wow-delay=".8s">
-                        <a href="#">{{trans('menu.login')}}</a>
+                        <a href="{{ action('Auth\LoginController@showLoginForm') }}">{{trans('menu.login')}}</a>
+                    </li>
+                    <li class="wow fadeInDown" data-wow-delay=".8s">
+                        <a href="{{ action('Auth\RegisterController@showRegistrationForm') }}">{{trans('menu.register')}}</a>
                     </li>
                 @endif
 
-                <li class="dropdown">
+                <li class="wow fadeInDown" data-wow-delay=".8s">
                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
                         <span class="caret"></span></button>
                     <ul class="dropdown-menu">
@@ -115,39 +237,7 @@
 
 <div class="content">
 
-
     @yield('content')
-
-    <section id="newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-
-                    <h1>{!! trans('presentation.newsletter.heading') !!}</h1>
-
-                    <p class="content-subheading">{!! trans('presentation.newsletter.subheading') !!}</p>
-
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <form method="post" action="/newsletter">
-                                {!! csrf_field() !!}
-
-                                <div class="input-group">
-                                    <input type="email" class="form-control" name="newsletter-email"
-                                           placeholder="{{ trans('presentation.newsletter.placeholder') }}" required>
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default btn-shadow"
-                                                type="submit">{{ trans('presentation.newsletter.button') }}</button>
-                                    </span>
-                                </div><!-- /input-group -->
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 </div>
 
@@ -158,13 +248,13 @@
             <div class="col-md-12">
                 <ul>
                     {{--<li class="{{$controllerMethod=='blog' ? 'active':''}}"><a--}}
-                                {{--href="{{action('Presentation\BlogController@index',$domain)}}">{{trans('presentation.menu.blog')}}</a>--}}
+                    {{--href="{{action('Presentation\BlogController@index',$domain)}}">{{trans('presentation.menu.blog')}}</a>--}}
                     {{--</li>--}}
                     {{--<li class="{{$controllerMethod=='support' ? 'active':''}}"><a--}}
-                                {{--href="{{action('Presentation\PresentationController@tutorials',$domain)}}">{{trans('presentation.menu.support')}}</a>--}}
+                    {{--href="{{action('Presentation\PresentationController@tutorials',$domain)}}">{{trans('presentation.menu.support')}}</a>--}}
                     {{--</li>--}}
                     {{--<li class="{{$controllerMethod=='support' ? 'active':''}}"><a--}}
-                                {{--href="{{action('Presentation\PresentationController@termsconditions',$domain)}}">{{trans('presentation.menu.tac')}}</a>--}}
+                    {{--href="{{action('Presentation\PresentationController@termsconditions',$domain)}}">{{trans('presentation.menu.tac')}}</a>--}}
                     {{--</li>--}}
                 </ul>
                 <p>{!! trans('presentation.partials.footer.company') !!}</p>
@@ -173,66 +263,102 @@
     </div>
 </footer>
 
-<script src="{{asset('js/presentation.js')}}"></script>
-<script src="{{asset('js/masonry.pkgd.min.js')}}"></script>
+<script src="{{asset('js/jquery.js')}}"></script>
 <script>
-    $('.template-block').mouseenter(function () {
-        $('.template-block').removeClass('active');
-        $(this).addClass('active');
-    });
+	(function ($) {
+		$(window).scroll(function () {
 
-    $('.template-block').mouseleave(function () {
-        $('.template-block').removeClass('active');
-    });
+			if ($(window).scrollTop() > 50) {
+				$('.navbar').addClass('nav-bg');
+			}
+			else {
+				$('.navbar').removeClass('nav-bg');
+			}
+			;
+		});
 
-    $(document).on('click', '.link-modal', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        console.log('klik na link-modal');
-
-        $link = $(e.target).closest('a');
-
-        $.ajax({
-            url: $link.attr('href')
-        }).done(function (data) {
-            var $modal = $(data);
-
-            $('body').append($modal);
-            $modal.modal();
-
-            $modal.on('hidden.bs.modal', function (e) {
-                $modal.remove();
-                $('.modal-backdrop').remove();
-            })
-        }).error(function () {
-
-        });
-    })
+		$(".navbar-toggle").on("click", function () {
+			$(this).toggleClass("active");
+		});
 
 
+		$('.parallax-window').parallax();
+
+		$(".feature-item").on("click", function () {
+			$(".feature-item").removeClass('active')
+			$(this).addClass("active");
+
+			var animation = $(this).data('animation');
+
+			$(".animation-item").removeClass('active');
+			$('.animation-item[data-animation="' + animation + '"]').addClass('active');
+		});
+	})(jQuery);
 </script>
+{{--<script src="{{asset('js/masonry.pkgd.min.js')}}"></script>--}}
+{{--<script>--}}
+{{--$('.template-block').mouseenter(function () {--}}
+{{--$('.template-block').removeClass('active');--}}
+{{--$(this).addClass('active');--}}
+{{--});--}}
 
+{{--$('.template-block').mouseleave(function () {--}}
+{{--$('.template-block').removeClass('active');--}}
+{{--});--}}
+
+{{--$(document).on('click', '.link-modal', function (e) {--}}
+{{--e.preventDefault();--}}
+{{--e.stopPropagation();--}}
+
+{{--console.log('klik na link-modal');--}}
+
+{{--$link = $(e.target).closest('a');--}}
+
+{{--$.ajax({--}}
+{{--url: $link.attr('href')--}}
+{{--}).done(function (data) {--}}
+{{--var $modal = $(data);--}}
+
+{{--$('body').append($modal);--}}
+{{--$modal.modal();--}}
+
+{{--$modal.on('hidden.bs.modal', function (e) {--}}
+{{--$modal.remove();--}}
+{{--$('.modal-backdrop').remove();--}}
+{{--})--}}
+{{--}).error(function () {--}}
+
+{{--});--}}
+{{--})--}}
+
+
+{{--</script>--}}
+{{--<script>--}}
+
+{{--var $grid = $('.grid').masonry({--}}
+{{--// set itemSelector so .grid-sizer is not used in layout--}}
+{{--itemSelector: '.grid-item',--}}
+{{--// use element for option--}}
+{{--columnWidth: '.grid-sizer',--}}
+{{--percentPosition: true--}}
+{{--})--}}
+
+
+{{--// layout Masonry after each image loads--}}
+{{--$grid.imagesLoaded().progress(function () {--}}
+{{--$grid.masonry('layout');--}}
+{{--});--}}
+{{--</script>--}}
+
+<script src="{{asset('js/select-categories.js')}}"></script>
 <script>
-
-    var $grid = $('.grid').masonry({
-        // set itemSelector so .grid-sizer is not used in layout
-        itemSelector: '.grid-item',
-        // use element for option
-        columnWidth: '.grid-sizer',
-        percentPosition: true
-    })
-
-
-    // layout Masonry after each image loads
-    $grid.imagesLoaded().progress(function () {
-        $grid.masonry('layout');
+    $('select').select2({
+        tags: true
     });
 </script>
-
-<script src="{{asset('js/wow.min.js')}}"></script>
+<script src="{{asset('js/wow.js')}}"></script>
 <script>
-    new WOW().init();
+	new WOW().init();
 </script>
 </body>
 </html>
