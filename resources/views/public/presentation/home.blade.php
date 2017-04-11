@@ -1,8 +1,23 @@
 @extends('public.presentation.layout')
 
+
 @section('navbar')
     @include('public.presentation.navbar')
 @endsection
+
+
+@section('navbar-left')
+    <li class="wow fadeInDown" data-wow-delay="0s">
+        <a href="#features">{{trans('menu.features')}}</a>
+    </li>
+    <li class="wow fadeInDown" data-wow-delay=".2s">
+        <a href="#testimonials">{{trans('menu.testimonials')}}</a>
+    </li>
+
+    <li class="wow fadeInDown" data-wow-delay=".2s">
+        <a href="#contact">{{trans('menu.contact')}}</a>
+    </li>
+@stop
 
 @section('banner')
     <div class="banner parallax-window" data-speed=".3" data-parallax="scroll"
@@ -55,7 +70,29 @@
 @endsection
 
 
-@section('content')
+    <section id="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-xs-12">
+                    <div class="feature-item">
+                        <h2 class="wow fadeInLeft" data-wow-offset="150">{!!trans('presentation.features-grid-heading') !!}</h2>
+                        <ul>{!! trans('presentation.features-grid-text2') !!}
+
+                        </ul>
+
+                        {{--<a href="{{action('Builder\DemoController@create')}}" class="btn btn-more btn-shadow wow fadeInUp" data-wow-offset="150"--}}
+                        {{--data-wow-delay="1s">{{trans('presentation.features.grid.button')}}</a>--}}
+                        <a href="#" class="btn btn-nobg wow fadeInUp" data-wow-offset="150"
+                           data-wow-delay="1s">{{trans('presentation.features-grid-button-more')}}</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-12">
+                    <img src="{{asset('img/presentation/grid-avatar.jpg')}}" class="img-responsive wow fadeInRight" data-wow-offset="150" data-wow-delay="1s"
+                         alt="{{trans('presentation.features.grid.alt')}}">
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="testimonials" class="homepage-section-b">
 
