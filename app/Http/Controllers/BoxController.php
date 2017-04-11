@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\FeedbackService;
+use App\Http\Requests\ReactionToFeedbackRequest;
+use Facades\App\Services\FeedbackService;
 use Illuminate\Http\Request;
 
 class BoxController extends Controller
@@ -87,5 +88,16 @@ class BoxController extends Controller
     {
         $feedbacks = FeedbackService::getFeedbacksForBox($id);
         return view('public.feedback.show', compact(['feedbacks']));
+    }
+
+    public function storeReactionToFeedback(ReactionToFeedbackRequest $request)
+    {
+        $notes = $request->feedback_notes;
+        $stars = $request->feedback_stars;
+
+        foreach ($request->feedback_ids as $fid) {
+            $feedback = FeedbackService::getById($fid);
+
+        }
     }
 }
