@@ -12,6 +12,32 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * App\Models\Feedback
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property int $box_id
+ * @property bool $favorite
+ * @property string $comment
+ * @property string $admin_comment
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property \Carbon\Carbon $deleted_at
+ * @property-read \App\Models\Box $box
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Rating[] $ratings
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Feedback whereAdminComment($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Feedback whereBoxId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Feedback whereComment($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Feedback whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Feedback whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Feedback whereFavorite($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Feedback whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Feedback whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Feedback whereUserId($value)
+ * @mixin \Eloquent
+ */
 class Feedback extends Model
 {
     use SoftDeletes;

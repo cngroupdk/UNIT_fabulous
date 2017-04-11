@@ -32,6 +32,7 @@ class BoxService
             return false;
         }
 
+        $box->code = '#'.uniqid();
         return $box;
     }
 
@@ -83,5 +84,17 @@ class BoxService
         }
 
         return true;
+    }
+
+    /**
+     * @param string $code
+     *
+     * @return null|Box null => unsuccessfully; instance of Feedback with $code
+     */
+    public function getByCode($code)
+    {
+        $box = Box::where('code', $code)->first();
+
+        return $box;
     }
 }
