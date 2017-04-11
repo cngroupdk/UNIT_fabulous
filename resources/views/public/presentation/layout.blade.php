@@ -11,12 +11,8 @@
     <link href="{{asset('css/presentation.css')}}" rel="stylesheet">
     <link href="{{asset('css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('css/select2.css')}}" rel="stylesheet">
-<<<<<<< HEAD
     <link href="{{asset('css/bootstrap-tagsinput.css')}}" rel="stylesheet">
-
-=======
     <link href="{{asset('css/flag-icon.min.css')}}" rel="stylesheet">
->>>>>>> 6d76248506635fa31857856423477c1974143ea9
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -62,8 +58,7 @@
             transition: all .2s;
         }
 
-
-        .wizard-wrapper{
+        .wizard-wrapper {
             min-height: 400px;
             height: auto;
 
@@ -83,11 +78,7 @@
             vertical-align: middle;
         }
 
-<<<<<<< HEAD
-        .tags{
-=======
         .tags {
->>>>>>> 6d76248506635fa31857856423477c1974143ea9
             margin: 0;
             padding: 0;
             list-style: none;
@@ -109,11 +100,6 @@
             transition: color 0.4s;
         }
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 6d76248506635fa31857856423477c1974143ea9
         .tags li .select2-selection__choice__remove {
             display: none;
             position: absolute;
@@ -133,15 +119,11 @@
             content: '×';
         }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6d76248506635fa31857856423477c1974143ea9
         .tags li:hover .select2-selection__choice__remove {
             display: block;
         }
 
-        .tag{
+        .tag {
             padding: 2px 3px;
         }
     </style>
@@ -291,63 +273,6 @@
 		tags: true
 	});
 
-<<<<<<< HEAD
-{{--$.ajax({--}}
-{{--url: $link.attr('href')--}}
-{{--}).done(function (data) {--}}
-{{--var $modal = $(data);--}}
-
-{{--$('body').append($modal);--}}
-{{--$modal.modal();--}}
-
-{{--$modal.on('hidden.bs.modal', function (e) {--}}
-{{--$modal.remove();--}}
-{{--$('.modal-backdrop').remove();--}}
-{{--})--}}
-{{--}).error(function () {--}}
-
-{{--});--}}
-{{--})--}}
-
-
-{{--</script>--}}
-{{--<script>--}}
-
-{{--var $grid = $('.grid').masonry({--}}
-{{--// set itemSelector so .grid-sizer is not used in layout--}}
-{{--itemSelector: '.grid-item',--}}
-{{--// use element for option--}}
-{{--columnWidth: '.grid-sizer',--}}
-{{--percentPosition: true--}}
-{{--})--}}
-
-
-{{--// layout Masonry after each image loads--}}
-{{--$grid.imagesLoaded().progress(function () {--}}
-{{--$grid.masonry('layout');--}}
-{{--});--}}
-{{--</script>--}}
-
-<script src="{{asset('js/select-categories.js')}}"></script>
-<script>
-    $('select').select2({
-        tags: true
-    });
-</script>
-
-
-<script src="{{asset('js/bootstrap-tagsinput.js')}}"></script>
-<script>
-    $('.tt-input').tagsinput();
-</script>
-
-$("input").tagsinput('items')
-
-
-<script src="{{asset('js/wow.js')}}"></script>
-<script>
-=======
->>>>>>> 6d76248506635fa31857856423477c1974143ea9
 	new WOW().init();
 </script>
 </body>
