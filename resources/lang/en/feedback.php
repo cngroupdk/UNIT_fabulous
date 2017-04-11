@@ -17,4 +17,10 @@ return [
     'email' => 'E-mail address',
     'text' => 'Comment',
 
+<<<<<<< HEAD
+=======
+    'message' => [
+        'success' => 'Feedback successfully created.'
+    ]
+>>>>>>> parent of c4045b5... doplnenie jazyka
 ];
