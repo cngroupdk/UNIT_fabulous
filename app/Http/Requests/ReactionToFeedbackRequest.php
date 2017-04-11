@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class WizardStoreGeneralRequest extends FormRequest
+class ReactionToFeedbackRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,9 @@ class WizardStoreGeneralRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'        => 'required|string|max:255|unique:name,boxes_boxes',
-            'description' => 'string|max:255'
+            'feedback_ids.*'       => 'required|exists:boxes_feedbacks,id',
+            'feedback_comments.*'  => 'string|max:255',
+            'feedback_favorites.*' => 'required|numeric|min:0|max:1'
         ];
     }
 }

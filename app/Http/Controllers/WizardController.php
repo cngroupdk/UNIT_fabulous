@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Events\MailEvent;
-use App\Http\Requests\CreateBoxRequest;
 use App\Http\Requests\WizardStoreCategoriesRequest;
 use App\Http\Requests\WizardStoreEmailsRequest;
 use App\Http\Requests\WizardStoreGeneralRequest;
@@ -23,11 +22,13 @@ class WizardController extends Controller
     {
         $generalData = [
             'name'        => $request->name,
-            'private'     => $request->private,
+            'private'     => $request->has('private'),
             'description' => $request->description
         ];
 
         \Session::put('general', $generalData);
+
+        return redirect()->action('WizardController@showCategories');
     }
 
     public function showCategories()
@@ -48,6 +49,8 @@ class WizardController extends Controller
         ];
 
         \Session::put('categories', $categoriesData);
+
+        return redirect()->action('WizardController@showEmails');
     }
 
     public function showEmails()
@@ -71,6 +74,8 @@ class WizardController extends Controller
         ];
 
         \Session::put('emails', $emailData);
+
+        return redirect()->action('WizardController@showPreview');
     }
 
     public function showPreview()
@@ -94,7 +99,7 @@ class WizardController extends Controller
         return view('wizard.preview', compact(['generalData', 'categoriesData', 'emailData']));
     }
 
-    public function create(CreateBoxRequest $request)
+    public function create()
     {
         // vytvorenie boxu
         $generalData = \Session::get('general');
