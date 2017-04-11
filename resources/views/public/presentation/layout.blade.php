@@ -10,6 +10,7 @@
 
     <link href="{{asset('css/presentation.css')}}" rel="stylesheet">
     <link href="{{asset('css/animate.css')}}" rel="stylesheet">
+    <link href="{{asset('css/select2.css')}}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -74,19 +75,19 @@
             vertical-align: middle;
         }
 
-        .wizard-categories{
+        .tags{
             margin: 0;
             padding: 0;
             list-style: none;
         }
 
-        .wizard-categories li {
+        .tags li {
             position: relative;
             font-size: 24px;
             border-bottom: 1px solid #ededed;
         }
 
-        .wizard-categories li label {
+        .tags li label {
             white-space: pre-line;
             word-break: break-all;
             padding: 15px 60px 15px 15px;
@@ -98,7 +99,7 @@
 
 
 
-        .wizard-categories li .destroy {
+        .tags li .select2-selection__choice__remove {
             display: none;
             position: absolute;
             top: 0;
@@ -113,12 +114,12 @@
             transition: color 0.2s ease-out;
         }
 
-        .wizard-categories li .destroy:after {
+        .tags li .select2-selection__choice__remove:after {
             content: '×';
         }
 
 
-        .wizard-categories li:hover .destroy {
+        .tags li:hover .select2-selection__choice__remove {
             display: block;
         }
     </style>
@@ -337,6 +338,12 @@
     {{--});--}}
 {{--</script>--}}
 
+<script src="{{asset('js/select-categories.js')}}"></script>
+<script>
+    $('select').select2({
+        tags: true
+    });
+</script>
 <script src="{{asset('js/wow.js')}}"></script>
 <script>
     new WOW().init();

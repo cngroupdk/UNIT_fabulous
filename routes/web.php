@@ -21,7 +21,6 @@ Route::get('bootstrap', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-<<<<<<< HEAD
 
 
 Route::get('/wizard','WizardController@general');
@@ -32,11 +31,11 @@ Route::get('/wizard/categories','WizardController@categories');
 //Route::post('/wizard/emails','WizardController@emails');
 //Route::get('/wizard/preview','WizardController@preview');
 //Route::get('/wizard','WizardController@create');
-=======
+
 Route::post('/home', 'HomeController@search');
 Route::get('/{code}', 'FeedbackController@index');
 
 Route::group(['middleware' => ['auth']], function () {
 
 });
->>>>>>> f16684f96080700042d68f7c8004cc1167b27b85
+
