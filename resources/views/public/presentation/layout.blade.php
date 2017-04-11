@@ -58,7 +58,8 @@
         }
 
         .wizard-wrapper{
-            height:400px;
+            min-height: 400px;
+            height: auto;
             padding: 50px;
             background: #fff;
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
