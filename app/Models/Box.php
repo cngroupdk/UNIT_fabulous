@@ -65,7 +65,7 @@ class Box extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'boxes_boxes_categories', 'category_id');
+        return $this->belongsToMany(Category::class, 'boxes_boxes_categories');
     }
 
     public function feedbacks()
