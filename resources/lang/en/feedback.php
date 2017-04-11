@@ -13,8 +13,9 @@ return [
     |
     */
 
-    'title' => 'Results',
-    'email' => 'E-mail address',
-    'text' => 'Comment',
+    'title'    => 'Results',
+    'email'    => 'E-mail address',
+    'text'     => 'Comment',
+    'favorite' => 'Favorite',
 
 ];

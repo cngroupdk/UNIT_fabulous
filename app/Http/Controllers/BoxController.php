@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ReactionToFeedbackRequest;
+use Facades\App\Services\BoxService;
 use Facades\App\Services\FeedbackService;
 use Illuminate\Http\Request;
 
@@ -95,9 +96,10 @@ class BoxController extends Controller
 
     public function showFeedback($id)
     {
+        $box = BoxService::getById($id);
         $feedbacks = FeedbackService::getFeedbacksForBox($id);
 
-        return view('public.feedback.show', compact(['feedbacks']));
+        return view('public.feedback.show', compact(['feedbacks', 'box']));
     }
 
     public function storeReactionToFeedback($id, ReactionToFeedbackRequest $request)
