@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateFeedbackRequest;
+use App\Notifications\Registration;
 use Facades\App\Services\BoxService;
 use Facades\App\Services\FeedbackService;
 use Facades\App\Services\UserService;
@@ -67,6 +68,7 @@ class FeedbackController extends Controller
             ]);
 
             event(new Registered($user));
+            $user->notify(new Registration($user, $password));
         }
 
         FeedbackService::create([

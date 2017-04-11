@@ -31,6 +31,7 @@ return [
             'greetings'    => 'Hello :name',
             'action'       => 'Log in',
             'introduction' => 'Your registration in TellMe system was successful.',
+            'password'     => 'Your password is: :password',
             'thanks'       => 'Thank you.',
         ]
     ],
