@@ -30,6 +30,7 @@ return [
         'logout' => 'Odhlásiť sa',
         'login' => 'Prihlásenie',
         'register' => 'Registrácia'
-    ]
+    ],
+
 
 ];
