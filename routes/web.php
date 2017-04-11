@@ -18,11 +18,21 @@ Route::get('bootstrap', function () {
     return view('bootstrap');
 });
 
+Route::get('/logout', 'Auth\LoginController@logout');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::post('/home', 'HomeController@search');
 
+Route::get('/lang/{code}', 'HomeController@changeLang');
+
+Route::get('/{code}', 'FeedbackController@create');
+Route::post('/{code}', 'FeedbackController@store');
+
+
+Route::group(['middleware' => ['auth']], function () {
 Route::get('/wizard','WizardController@showGeneral');
 Route::post('/wizard/general','WizardController@storeGeneral');
 Route::get('/wizard/categories','WizardController@showCategories');
@@ -32,16 +42,5 @@ Route::post('/wizard/emails','WizardController@storeEmails');
 Route::get('/wizard/preview','WizardController@showPreview');
 
 Route::get('/wizard/create','WizardController@create');
-
-
-Route::post('/home', 'HomeController@search');
-
-
-Route::get('/{code}', 'FeedbackController@create');
-Route::post('/{code}', 'FeedbackController@store');
-
-Route::get('/box/{id}/feedback', 'BoxController@showFeedback');
-
-Route::group(['middleware' => ['auth']], function () {
 
 });
