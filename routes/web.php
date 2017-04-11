@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('bootstrap', function () {
+    return view('bootstrap');
+});
