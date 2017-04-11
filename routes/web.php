@@ -46,6 +46,8 @@ Route::post('/home', 'HomeController@search');
 Route::get('/{code}', 'FeedbackController@create');
 Route::post('/{code}', 'FeedbackController@store');
 
+Route::get('/box/{id}/feedback', 'BoxController@showFeedback');
+
 Route::group(['middleware' => ['auth']], function () {
 
 });
